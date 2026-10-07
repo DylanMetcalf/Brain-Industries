@@ -1,0 +1,25 @@
+{
+  "_comment": "Gallery images. 'src' points to a file in src/assets/images. 'category' must match one of the categories below. Images are resized automatically at build time.",
+  "categories": [
+    { "id": "installations", "label": "Panels & installations" },
+    { "id": "products", "label": "Products" }
+  ],
+  "items": [
+    { "src": "/assets/images/gallery/panel-line-up.jpg", "alt": "Line-up of orange industrial electrical panels in a plant room", "caption": "Panel line-up", "category": "installations" },
+    { "src": "/assets/images/gallery/magnet-panels.jpg", "alt": "Orange magnet panels on stands in a workshop", "caption": "Magnet panels", "category": "installations" },
+    { "src": "/assets/images/gallery/local-control-station-1.jpg", "alt": "Closed local control station with meters, indicator lamps and push buttons", "caption": "Local control station", "category": "installations" },
+    { "src": "/assets/images/gallery/local-control-station-open.jpg", "alt": "Open local control station showing internal wiring and door-mounted controls", "caption": "Local control station — internal view", "category": "installations" },
+    { "src": "/assets/images/gallery/local-control-station-5.jpg", "alt": "Open local control station panel with meters and selector switches", "caption": "Local control station", "category": "installations" },
+    { "src": "/assets/images/gallery/distribution-board-orange.jpg", "alt": "Open orange distribution board with circuit breakers", "caption": "Distribution board", "category": "installations" },
+    { "src": "/assets/images/gallery/distribution-board-orange-portrait.jpg", "alt": "Open orange enclosure with contactors, breakers and wiring", "caption": "Control panel — internal view", "category": "installations" },
+    { "src": "/assets/images/gallery/control-panel-open.jpg", "alt": "Open grey control panel with internal components", "caption": "Control panel", "category": "installations" },
+    { "src": "/assets/images/gallery/earth-mat-mv-switchgear.jpg", "alt": "Earth mat warning sign on a brick wall next to MV switchgear", "caption": "Earth mat — MV switchgear", "category": "installations" },
+    { "src": "/assets/images/gallery/container-installation.jpg", "alt": "Grey steel container unit with external floodlight on site", "caption": "Container installation", "category": "installations" },
+    { "src": "/assets/images/gallery/roto-reflector-range.jpg", "alt": "Safety Roto Reflectors in several colours", "caption": "Safety Roto Reflectors — colour range", "category": "products" },
+    { "src": "/assets/images/gallery/roto-reflector-red.jpg", "alt": "Red Safety Roto Reflector", "caption": "Safety Roto Reflector — red", "category": "products" },
+    { "src": "/assets/images/gallery/roto-reflector-yellow.jpg", "alt": "Yellow Safety Roto Reflector", "caption": "Safety Roto Reflector — yellow", "category": "products" },
+    { "src": "/assets/images/gallery/roto-reflector-green.jpg", "alt": "Green Safety Roto Reflector", "caption": "Safety Roto Reflector — green", "category": "products" },
+    { "src": "/assets/images/gallery/roto-reflector-blue.jpg", "alt": "Blue Safety Roto Reflector", "caption": "Safety Roto Reflector — blue", "category": "products" },
+    { "src": "/assets/images/products/auto-bindicator.jpg", "alt": "Rotary paddle bindicator unit", "caption": "Auto bindicator", "category": "products" }
+  ]
+}

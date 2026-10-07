@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+title: Services & Products
+description: "Electrical and hazardous area services and products from Brain Industries: area classification, electrical and earthing audits, Ex installations, certificates of compliance, Ex equipment, bindicators, roto reflectors and LED lighting."
+---
+<section class="page-head">
+  <div class="container">
+    <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Services</li></ol>
+    <p class="eyebrow">Services &amp; products</p>
+    <h1>Electrical and hazardous area expertise, from classification to compliance</h1>
+    <p class="lead">We provide specialist services for electrical and explosion-protected (Ex) installations, and supply the products that go into them. Select a service for detail on scope and typical applications.</p>
+  </div>
+</section>
+
+{%- for grp in [["service", "Services"], ["product", "Products"]] %}
+<section class="section{% if not loop.first %} section-paper section-line{% endif %}" aria-labelledby="grp-{{ grp[0] }}">
+  <div class="container">
+    <h2 class="group-label" id="grp-{{ grp[0] }}">{{ grp[1] }}</h2>
+    <ul class="service-rows">
+      {%- for s in services | byGroup(grp[0]) %}
+      <li class="service-row">
+        <span class="card-icon">{% icon s.icon %}</span>
+        <h3><a href="/services/{{ s.slug }}/">{{ s.title }}</a></h3>
+        <p>{{ s.short }}</p>
+        <span class="link-arrow" aria-hidden="true">Details {% icon "arrow-right" %}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endfor %}
+
+{% include "partials/cta.njk" %}

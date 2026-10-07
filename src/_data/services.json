@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "hazardous-area-classification",
+    "title": "Hazardous Area Classification",
+    "group": "service",
+    "icon": "map",
+    "short": "Identifying where explosive gas or dust atmospheres can occur, and defining the zones that govern equipment selection.",
+    "metaDescription": "Hazardous area classification for industrial sites in South Africa: identifying explosive gas and dust atmospheres, defining zones and documenting the basis for Ex equipment selection.",
+    "lead": "Every decision about electrical equipment in a hazardous location starts with a sound classification. We assess where flammable gases, vapours or combustible dusts may be present, how often, and for how long — and document the result so that the right equipment is specified and installed.",
+    "body": [
+      "A hazardous area is defined by three main criteria: the type of hazard (the gas or dust group), the auto-ignition temperature of the hazardous material (the temperature or “T” rating), and the likelihood of the hazard being present in flammable concentrations (the zone).",
+      "Getting these criteria right determines which protection concepts and equipment categories are acceptable in each part of a plant. An overly conservative classification adds cost; an under-classified area creates real ignition risk. Our role is to help you reach a classification that is defensible, practical and clearly documented."
+    ],
+    "points": [
+      "Identification of sources of release for flammable gases, vapours and combustible dusts",
+      "Zone definition for gas (Zones 0, 1, 2) and dust (Zones 20, 21, 22) atmospheres",
+      "Gas / dust group and temperature class (T-rating) determination",
+      "Documentation to support Ex equipment selection, installation and inspection"
+    ],
+    "audience": ["Process and petrochemical plants", "Fuel storage and handling", "Facilities handling combustible dusts", "New installations, plant changes and extensions"],
+    "image": null
+  },
+  {
+    "slug": "electrical-earthing-audits",
+    "title": "Electrical & Earthing Audits",
+    "group": "service",
+    "icon": "clipboard-check",
+    "short": "Independent inspection of electrical installations and earthing systems, with clear findings you can act on.",
+    "metaDescription": "Electrical and earthing audits by Brain Industries: inspection of electrical installations and earthing systems with clear, prioritised findings for plant and maintenance teams.",
+    "lead": "Installations change over time — equipment is added, modified and exposed to harsh conditions. A structured audit establishes the actual condition of your electrical installation and earthing system, and gives your team a prioritised list of what needs attention.",
+    "body": [
+      "An electrical inspection, or periodic inspection, helps prevent future mishaps caused by issues within your electrical system, including malfunctions and fires. Earthing and bonding deserve particular attention: they protect people against electric shock, allow protective devices to operate correctly and, in hazardous areas, help prevent incendive sparks and static build-up.",
+      "Our audits are practical. Findings are recorded clearly so that maintenance, operations and management can see what was inspected, what was found and what corrective action is recommended."
+    ],
+    "points": [
+      "Visual and physical inspection of electrical installations and equipment",
+      "Inspection of earthing and bonding arrangements",
+      "Electrical audits in hazardous (Ex) areas",
+      "Clear, prioritised findings and recommended corrective actions"
+    ],
+    "audience": ["Plant and maintenance managers", "Operations with ageing installations", "Sites preparing for compliance reviews", "Hazardous area facilities"],
+    "image": "/assets/images/gallery/earth-mat-mv-switchgear.jpg",
+    "imageAlt": "Earth mat warning sign mounted on a brick wall next to MV switchgear"
+  },
+  {
+    "slug": "hazardous-area-installations",
+    "title": "Electrical & Hazardous Area Installations",
+    "group": "service",
+    "icon": "cable",
+    "short": "Electrical installation work for general industrial and hazardous (Ex) environments, from panels to field equipment.",
+    "metaDescription": "Electrical and hazardous area (Ex) installations by Brain Industries, Pretoria: control stations, panels, distribution boards and field equipment for industrial environments.",
+    "lead": "Hazardous area installations have to be right first time. Equipment must suit the classified zone, gas or dust group and temperature class, and it must be installed so that its protection concept is maintained. We carry out electrical installation work for both general industrial and Ex environments.",
+    "body": [
+      "Our installation work covers the equipment that keeps a plant running — local control stations, panels, distribution boards and the associated cabling and field equipment. In hazardous areas, the integrity of each installation depends on details such as correct cable entry, gland selection, sealing and earthing.",
+      "Where required, installations can be followed by inspection and documentation, so that you have a clear record of what was installed and its condition at handover."
+    ],
+    "points": [
+      "Local control stations, panels and distribution boards",
+      "Installation of explosion-protected (Ex) equipment",
+      "Cabling, cable entries and glanding appropriate to the protection concept",
+      "Earthing and bonding of installed equipment"
+    ],
+    "audience": ["New plant and expansions", "Equipment replacements and upgrades", "Hazardous area facilities", "Industrial and mining operations"],
+    "image": "/assets/images/gallery/local-control-station-open.jpg",
+    "imageAlt": "Open local control station panel showing meters, indicator lamps and push buttons"
+  },
+  {
+    "slug": "certificate-of-compliance",
+    "title": "Electrical Certificate of Compliance",
+    "group": "service",
+    "icon": "file-check",
+    "short": "Inspection and testing of electrical installations for the issuing of a Certificate of Compliance (CoC).",
+    "metaDescription": "Electrical Certificates of Compliance (CoC) in Pretoria and Gauteng: inspection and testing of electrical installations in line with the Electrical Installation Regulations.",
+    "lead": "A Certificate of Compliance (CoC) confirms that an electrical installation has been inspected and tested and meets the applicable requirements. It is required under the Electrical Installation Regulations, issued in terms of the Occupational Health and Safety Act, 85 of 1993.",
+    "body": [
+      "A CoC is typically required for new installations, alterations and additions, and when a property changes ownership. It must be issued by a registered person after the installation has been inspected and tested.",
+      "We inspect and test the installation, identify anything that needs to be corrected and, once the installation complies, issue the certificate and supporting test report."
+    ],
+    "points": [
+      "Inspection and testing of electrical installations",
+      "Identification of non-compliances and required remedial work",
+      "Certificate of Compliance and test report",
+      "Supplementary certificates for alterations and additions"
+    ],
+    "audience": ["Commercial and industrial property owners", "Property transfers", "New installations and alterations", "Facilities managers"],
+    "image": null
+  },
+  {
+    "slug": "explosion-protected-equipment",
+    "title": "Explosion-Protected (Ex) Equipment Supply",
+    "group": "product",
+    "icon": "shield-check",
+    "short": "Supply of flameproof (FLP) and explosion-protected electrical equipment, including the TEP Ex product range.",
+    "metaDescription": "Supply of flameproof (FLP) and explosion-protected (Ex) electrical equipment in South Africa, including the TEP Ex product range, from Brain Industries.",
+    "lead": "Equipment installed in a hazardous area must be suitable for the zone, gas or dust group and temperature class in which it will operate. We supply flameproof (FLP) and explosion-protected electrical equipment, and supply the full range of TEP Ex products.",
+    "body": [
+      "Because we also classify, install and inspect hazardous areas, we approach product supply with the installation in mind: the right equipment for the classification, with the correct cable entries and accessories to maintain its protection concept.",
+      "Tell us what the equipment is for and where it will be installed, and we will help you identify suitable options."
+    ],
+    "points": [
+      "Flameproof (FLP) electrical equipment",
+      "The TEP Ex range of explosion-protected products",
+      "Selection support based on zone, group and temperature class",
+      "Supply aligned with our installation and inspection services"
+    ],
+    "audience": ["Procurement and engineering teams", "Maintenance departments", "Contractors working in Ex areas", "Projects and plant upgrades"],
+    "image": "/assets/images/gallery/panel-line-up.jpg",
+    "imageAlt": "Line-up of orange industrial electrical panels in a plant room"
+  },
+  {
+    "slug": "auto-bindicators",
+    "title": "Auto Bindicators",
+    "group": "product",
+    "icon": "gauge",
+    "short": "Rotary paddle level indicators for bins, silos and hoppers holding bulk solids.",
+    "metaDescription": "Auto bindicators (rotary paddle level indicators) for bins, silos and hoppers containing bulk materials, supplied by Brain Industries.",
+    "lead": "A bindicator is a rotary paddle level indicator. A slowly rotating paddle is mounted through the wall of a bin, silo or hopper; when bulk material reaches the paddle and stops it turning, the unit switches a signal — indicating high, low or intermediate level.",
+    "body": [
+      "Level indication helps prevent overfilling, running empty and the downtime and spillage that come with both. Bindicators are a simple, robust way of providing that signal for bulk solids such as grain, powders, aggregates and similar materials.",
+      "Contact us with your application — the material, vessel and installation conditions — and we will advise on a suitable unit."
+    ],
+    "points": [
+      "Rotary paddle level indication for bulk solids",
+      "High, low and intermediate level detection",
+      "For bins, silos, hoppers and chutes",
+      "Application advice on selection and installation"
+    ],
+    "audience": ["Bulk material handling", "Processing plants", "Mining and minerals", "Agricultural storage"],
+    "image": "/assets/images/products/auto-bindicator.jpg",
+    "imageAlt": "Rotary paddle bindicator unit with enclosure and paddle shaft",
+    "imageFit": "contain"
+  },
+  {
+    "slug": "safety-roto-reflectors",
+    "title": "Safety Roto Reflectors",
+    "group": "product",
+    "icon": "rotate-cw",
+    "short": "Wind-driven rotating reflectors that make equipment, vehicles and obstacles stand out.",
+    "metaDescription": "Safety Roto Reflectors from Brain Industries: rotating reflectors in a range of colours for improved visibility of equipment, vehicles and obstacles.",
+    "lead": "Safety Roto Reflectors are rotating reflectors. As the unit turns, its reflective cups catch and return light from changing angles — creating movement that draws the eye far more effectively than a static reflector.",
+    "body": [
+      "They are available in a range of colours, which allows colour coding of equipment, routes or hazards.",
+      "Please contact us for mounting options, colours and quantities."
+    ],
+    "points": [
+      "Rotating reflective cups for improved visibility",
+      "Available in red, orange, yellow, green and blue",
+      "Supports colour coding of equipment and hazards",
+      "Supplied in quantities to suit your site"
+    ],
+    "audience": ["Mining and industrial sites", "Vehicle and equipment marking", "Obstacle and route marking", "Safety officers"],
+    "image": "/assets/images/products/safety-roto-reflector.jpg",
+    "imageAlt": "Red Safety Roto Reflector with orange reflective cups",
+    "imageFit": "contain"
+  },
+  {
+    "slug": "led-lighting",
+    "title": "LED Lighting",
+    "group": "product",
+    "icon": "lightbulb",
+    "short": "LED lighting for industrial applications, including the HALO range.",
+    "metaDescription": "LED lighting for industrial applications, including the HALO range, supplied by Brain Industries South Africa.",
+    "lead": "Good lighting is a safety requirement, not a luxury. We supply LED lighting for industrial applications, including the HALO range, and can advise on fittings for general and hazardous area use.",
+    "body": [
+      "LED lighting reduces energy consumption and maintenance compared with older lamp technologies, which matters where fittings are difficult or costly to access.",
+      "In hazardous areas, light fittings must be certified for the zone, group and temperature class in which they are installed. We can help you select lighting that suits both the task and the classification."
+    ],
+    "points": [
+      "LED lighting for industrial environments",
+      "The HALO LED lighting range",
+      "Guidance on fittings for hazardous areas",
+      "Supply aligned with our installation services"
+    ],
+    "audience": ["Plants and workshops", "Underground and mining environments", "Hazardous area facilities", "Lighting upgrades"],
+    "image": "/assets/images/products/led-lighting-tunnel.jpg",
+    "imageAlt": "Underground mine tunnel lit by a line of LED lights with a vehicle in the foreground"
+  }
+]

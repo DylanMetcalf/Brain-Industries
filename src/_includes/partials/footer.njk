@@ -1,0 +1,57 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand brand-invert" href="/" aria-label="Brain Industries — home">
+        <img class="brand-mark" src="/assets/images/brand/brain-mark-128.png" alt="" width="72" height="128" loading="lazy">
+        <span class="brand-text">
+          <span class="brand-name">Brain Industries</span>
+          <span class="brand-sub">(Pty) Ltd · South Africa</span>
+        </span>
+      </a>
+      <p class="footer-about">Electrical and hazardous area (Ex) services and product supply — classification, audits, installations, certification and digital inspections.</p>
+      <a class="btn btn-ghost-light btn-sm" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Download company profile</a>
+    </div>
+
+    <nav class="footer-col" aria-label="Services">
+      <h2 class="footer-title">Services &amp; products</h2>
+      <ul>
+        {%- for s in services %}
+        <li><a href="/services/{{ s.slug }}/">{{ s.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Company">
+      <h2 class="footer-title">Company</h2>
+      <ul>
+        <li><a href="/inspectx/">InspectX</a></li>
+        <li><a href="/about/">About us</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        {%- if site.linkedin %}<li><a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+      </ul>
+    </nav>
+
+    <div class="footer-col">
+      <h2 class="footer-title">Contact</h2>
+      <address>
+        <ul class="footer-contact">
+          {%- for c in site.contacts %}
+          <li><span class="muted">{{ c.name }}</span><br><a href="tel:{{ c.tel }}">{{ c.phone }}</a></li>
+          {%- endfor %}
+          <li><a href="mailto:{{ site.primaryEmail }}">{{ site.primaryEmail }}</a></li>
+          <li class="muted">{{ site.address.street }}, {{ site.address.suburb }},<br>{{ site.address.city }}, {{ site.address.postalCode }}</li>
+        </ul>
+      </address>
+    </div>
+  </div>
+
+  <div class="container footer-legal">
+    <p>© {{ "" | year }} {{ site.legalName }}{% if site.registrationNumber %} · Reg. no. {{ site.registrationNumber }}{% endif %}</p>
+    <ul>
+      <li><a href="/legal/">Legal</a></li>
+      <li><a href="{{ site.documents.privacy.url }}" target="_blank" rel="noopener">Privacy Notice</a></li>
+      <li><a href="{{ site.documents.paia.url }}" target="_blank" rel="noopener">PAIA Manual</a></li>
+    </ul>
+  </div>
+</footer>

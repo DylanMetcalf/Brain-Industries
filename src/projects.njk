@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+title: Projects & Gallery
+description: "A selection of control stations, panels, distribution boards, earthing and products from Brain Industries projects."
+---
+<section class="page-head">
+  <div class="container">
+    <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Projects</li></ol>
+    <p class="eyebrow">Projects &amp; gallery</p>
+    <h1>A selection of our work and products</h1>
+    <p class="lead">Local control stations, panels, distribution boards and earthing from our installation work, together with products we supply.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar" role="group" aria-label="Filter images">
+      <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All<span class="count">{{ gallery.items.length }}</span></button>
+      {%- for c in gallery.categories %}
+      <button class="filter-btn" type="button" data-filter="{{ c.id }}" aria-pressed="false">{{ c.label }}<span class="count">{{ (gallery.items | where("category", c.id)).length }}</span></button>
+      {%- endfor %}
+    </div>
+    <p class="visually-hidden" aria-live="polite" data-filter-status></p>
+
+    <ul class="gallery" data-gallery>
+      {%- for item in gallery.items %}
+      <li data-category="{{ item.category }}">
+        <figure>
+          <a href="{% imageUrl item.src %}" data-lightbox-link data-caption="{{ item.caption }}">
+            {% image item.src, item.alt, "(min-width: 72em) 25vw, (min-width: 48em) 33vw, 50vw" %}
+            <span class="visually-hidden">Open larger image</span>
+          </a>
+          <figcaption>{{ item.caption }}</figcaption>
+        </figure>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<dialog class="lightbox" data-lightbox aria-label="Image viewer">
+  <div class="lightbox-inner">
+    <img alt="">
+    <div class="lightbox-bar">
+      <p data-lightbox-caption></p>
+      <button class="icon-btn" type="button" data-prev aria-label="Previous image">{% icon "arrow-right" %}</button>
+      <button class="icon-btn" type="button" data-next aria-label="Next image">{% icon "arrow-right" %}</button>
+      <button class="icon-btn" type="button" data-close aria-label="Close" autofocus>{% icon "x" %}</button>
+    </div>
+  </div>
+</dialog>
+
+{% include "partials/cta.njk" %}

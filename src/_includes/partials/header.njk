@@ -1,0 +1,32 @@
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Brain Industries — home">
+      <picture>
+        <source srcset="/assets/images/brand/brain-mark-128.webp" type="image/webp">
+        <img class="brand-mark" src="/assets/images/brand/brain-mark-128.png" alt="" width="72" height="128">
+      </picture>
+      <span class="brand-text">
+        <span class="brand-name">Brain Industries</span>
+        <span class="brand-sub">(Pty) Ltd · South Africa</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="nav-toggle-label">Menu</span>
+      {% icon "menu", "icon-open" %}{% icon "x", "icon-close" %}
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main" data-nav>
+      <ul class="nav-list">
+        {%- for item in nav %}
+        {%- set active = page.url == item.url or (item.url != "/" and page.url.startsWith(item.url)) %}
+        <li><a class="nav-link" href="{{ item.url }}"{% if active %} aria-current="{{ 'page' if page.url == item.url else 'true' }}"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+      <div class="nav-actions">
+        <a class="nav-doc" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %}<span>Company profile</span></a>
+        <a class="btn btn-primary btn-sm" href="/contact/">Request a quote</a>
+      </div>
+    </nav>
+  </div>
+</header>

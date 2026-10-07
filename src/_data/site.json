@@ -1,0 +1,48 @@
+{
+  "_comment": "Central company details. Edit here and every page updates on the next build. See HANDOVER.md.",
+  "name": "Brain Industries",
+  "legalName": "Brain Industries (Pty) Ltd",
+  "registrationNumber": "2016/099333/07",
+  "url": "https://www.brainindustriessa.com",
+  "tagline": "Quality electrical services & products",
+  "description": "Brain Industries (Pty) Ltd is a Pretoria-based electrical company specialising in hazardous area (Ex) services, electrical and earthing audits, installations, certificates of compliance and explosion-protected product supply.",
+  "locale": "en_ZA",
+
+  "address": {
+    "street": "402 Julius Jeppe Street",
+    "suburb": "Waterkloof",
+    "city": "Pretoria",
+    "region": "Gauteng",
+    "postalCode": "0181",
+    "country": "South Africa",
+    "countryCode": "ZA"
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=402+Julius+Jeppe+Street%2C+Waterkloof%2C+Pretoria%2C+0181",
+
+  "contacts": [
+    { "name": "Jonathan Metcalf", "phone": "+27 83 679 1069", "tel": "+27836791069", "email": "jonathanm@imagine.co.za" },
+    { "name": "Sharon Metcalf",   "phone": "+27 82 448 8433", "tel": "+27824488433", "email": "sharonm@imagine.co.za" }
+  ],
+  "projectsContact": { "label": "Projects & InspectX", "phone": "+27 60 842 4497", "tel": "+27608424497", "email": "brainprojects@imagine.co.za" },
+  "primaryEmail": "jonathanm@imagine.co.za",
+  "primaryPhone": "+27 83 679 1069",
+  "primaryTel": "+27836791069",
+
+  "linkedin": "http://www.linkedin.com/in/brainindustriessa",
+
+  "documents": {
+    "companyProfile": { "url": "/assets/docs/brain-industries-company-profile.pdf", "label": "Company Profile", "size": "PDF · 10 MB" },
+    "inspectxOnePager": { "url": "/assets/docs/inspectx-one-pager.pdf", "label": "InspectX one-pager", "size": "PDF · 4.5 MB" },
+    "inspectxPresentation": { "url": "/assets/docs/inspectx-presentation.pdf", "label": "InspectX presentation", "size": "PDF · 6.4 MB" },
+    "privacy": { "url": "/assets/docs/brain-industries-privacy-notice.pdf", "label": "Privacy Notice", "size": "PDF" },
+    "paia": { "url": "/assets/docs/brain-industries-paia-manual.pdf", "label": "PAIA Manual", "size": "PDF" }
+  },
+
+  "form": {
+    "_comment": "Web3Forms public access key. Create it at https://web3forms.com using the address that should receive enquiries. Leave empty to show the email fallback instead of the form.",
+    "provider": "web3forms",
+    "endpoint": "https://api.web3forms.com/submit",
+    "accessKey": "",
+    "subjectPrefix": "Website enquiry"
+  }
+}

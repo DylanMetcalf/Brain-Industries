@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: services
+  size: 1
+  alias: s
+permalink: "/services/{{ s.slug }}/"
+eleventyComputed:
+  title: "{{ s.title }}"
+  description: "{{ s.metaDescription }}"
+---
+{%- set idx = services.indexOf(s) %}
+{%- set prev = services[idx - 1] if idx > 0 else services[services.length - 1] %}
+{%- set next = services[idx + 1] if idx < services.length - 1 else services[0] %}
+<section class="page-head">
+  <div class="container">
+    <ol class="breadcrumb"><li><a href="/">Home</a></li><li><a href="/services/">Services</a></li><li aria-current="page">{{ s.title }}</li></ol>
+    <span class="page-head-icon">{% icon s.icon %}</span>
+    <p class="eyebrow">{{ "Service" if s.group == "service" else "Product supply" }}</p>
+    <h1>{{ s.title }}</h1>
+    <p class="lead">{{ s.short }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container detail-grid">
+    <article>
+      <div class="prose">
+        <p class="lead">{{ s.lead }}</p>
+        {%- for p in s.body %}<p>{{ p }}</p>{% endfor %}
+      </div>
+
+      {%- if s.image %}
+      <figure class="media-frame mt-2 {{ s.imageFit or 'cover' }}">
+        {% image s.image, s.imageAlt, "(min-width: 62em) 700px, 100vw" %}
+      </figure>
+      {%- endif %}
+
+      <h2>{{ "What’s included" if s.group == "service" else "What we offer" }}</h2>
+      <ul class="check-list">
+        {%- for pt in s.points %}<li>{% icon "check" %}<span>{{ pt }}</span></li>{% endfor %}
+      </ul>
+
+      <h2>Typical applications</h2>
+      <ul class="chips">
+        {%- for a in s.audience %}<li>{{ a }}</li>{% endfor %}
+      </ul>
+
+      <h2 class="visually-hidden">More services</h2>
+      <nav class="pager mt-3" aria-label="Previous and next service">
+        <a href="/services/{{ prev.slug }}/"><small>Previous</small><span>{{ prev.title }}</span></a>
+        <a class="next" href="/services/{{ next.slug }}/"><small>Next</small><span>{{ next.title }}</span></a>
+      </nav>
+    </article>
+
+    <aside class="aside-sticky" aria-label="Enquire">
+      <div class="cta-card">
+        <h2>Enquire about this {{ "service" if s.group == "service" else "product" }}</h2>
+        <p>Tell us about your site and requirement, and we will respond with next steps or a quotation.</p>
+        <a class="btn btn-light" href="/contact/?enquiry={{ s.slug }}#enquiry">Send an enquiry {% icon "arrow-right" %}</a>
+        <ul class="contact-lines">
+          {%- for c in site.contacts %}
+          <li><a href="tel:{{ c.tel }}">{% icon "phone" %}{{ c.phone }} <span class="muted">· {{ c.name }}</span></a></li>
+          {%- endfor %}
+          <li><a href="mailto:{{ site.primaryEmail }}">{% icon "mail" %}{{ site.primaryEmail }}</a></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-head">Related</div>
+        <ul class="related-list">
+          {%- for r in services | except(s.slug) | byGroup(s.group) %}
+          <li><a href="/services/{{ r.slug }}/">{{ r.title }} {% icon "arrow-right" %}</a></li>
+          {%- endfor %}
+          <li><a href="/inspectx/">InspectX digital inspections {% icon "arrow-right" %}</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>

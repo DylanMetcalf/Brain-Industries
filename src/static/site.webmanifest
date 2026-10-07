@@ -1,0 +1,8 @@
+{
+  "name": "Brain Industries (Pty) Ltd",
+  "short_name": "Brain Industries",
+  "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }],
+  "theme_color": "#6E0334",
+  "background_color": "#F7F6F4",
+  "display": "browser"
+}

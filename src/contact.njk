@@ -1,0 +1,113 @@
+---
+layout: layouts/base.njk
+title: Contact Us & Request a Quote
+description: "Contact Brain Industries in Waterkloof, Pretoria for electrical and hazardous area services, Ex products and InspectX. Phone, email or send an enquiry online."
+---
+<section class="page-head">
+  <div class="container">
+    <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>
+    <p class="eyebrow">Contact</p>
+    <h1>Let’s discuss your requirements</h1>
+    <p class="lead">Request a quotation, ask a technical question or arrange a site visit. Call us directly or send an enquiry below.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <div class="stack">
+      <ul class="contact-cards">
+        {%- for c in site.contacts %}
+        <li>
+          <h2 class="visually-hidden">{{ c.name }}</h2>
+          <p class="name">{{ c.name }}</p>
+          <a class="contact-line" href="tel:{{ c.tel }}">{% icon "phone" %}{{ c.phone }}</a>
+          <a class="contact-line" href="mailto:{{ c.email }}">{% icon "mail" %}{{ c.email }}</a>
+        </li>
+        {%- endfor %}
+        <li>
+          <h3>{{ site.projectsContact.label }}</h3>
+          <a class="contact-line" href="tel:{{ site.projectsContact.tel }}">{% icon "phone" %}{{ site.projectsContact.phone }}</a>
+          <a class="contact-line" href="mailto:{{ site.projectsContact.email }}">{% icon "mail" %}{{ site.projectsContact.email }}</a>
+        </li>
+        <li>
+          <h3>Office</h3>
+          <address>
+            <span class="contact-line">{% icon "map-pin" %}<span>{{ site.address.street }}<br>{{ site.address.suburb }}, {{ site.address.city }}<br>{{ site.address.country }}, {{ site.address.postalCode }}</span></span>
+          </address>
+          <a class="link-arrow mt-1" href="{{ site.mapsUrl }}" target="_blank" rel="noopener">Get directions {% icon "arrow-up-right" %}</a>
+        </li>
+      </ul>
+      <a class="doc-link" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-text" %}<span><strong>Company profile</strong><small>{{ site.documents.companyProfile.size }}</small></span>{% icon "arrow-up-right", "arrow" %}</a>
+    </div>
+
+    <div id="enquiry">
+      <h2>Send an enquiry</h2>
+      <p class="muted">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required. We use your details only to respond to your enquiry.</p>
+      <form class="form" action="{{ site.form.endpoint }}" method="post" novalidate
+            data-contact-form data-access-key="{{ site.form.accessKey }}" data-fallback-email="{{ site.primaryEmail }}">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Name *</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100" aria-describedby="f-name-error">
+            <p class="field-error" id="f-name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-company">Company <span class="opt">(optional)</span></label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-email">Email *</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="f-email-error">
+            <p class="field-error" id="f-email-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" pattern="[0-9+()\-\s]{7,30}" aria-describedby="f-phone-error">
+            <p class="field-error" id="f-phone-error" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-enquiry">Enquiry type *</label>
+          <select id="f-enquiry" name="enquiry" required aria-describedby="f-enquiry-error">
+            <option value="">Select an option</option>
+            <option value="Request a quotation" data-slug="quote">Request a quotation</option>
+            <optgroup label="Services">
+              {%- for s in services | byGroup("service") %}<option value="{{ s.title }}" data-slug="{{ s.slug }}">{{ s.title }}</option>{% endfor %}
+            </optgroup>
+            <optgroup label="Products">
+              {%- for s in services | byGroup("product") %}<option value="{{ s.title }}" data-slug="{{ s.slug }}">{{ s.title }}</option>{% endfor %}
+            </optgroup>
+            <option value="InspectX" data-slug="inspectx">InspectX digital inspections</option>
+            <option value="General enquiry" data-slug="general">General enquiry</option>
+          </select>
+          <p class="field-error" id="f-enquiry-error" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="f-message">Message *</label>
+          <textarea id="f-message" name="message" required minlength="10" maxlength="4000" rows="6" aria-describedby="f-message-hint f-message-error"></textarea>
+          <p class="muted mb-0" id="f-message-hint"><small>Helpful details: site location, type of facility, scope of work and timing.</small></p>
+          <p class="field-error" id="f-message-error" aria-live="polite"></p>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-botcheck">Leave this field empty</label>
+          <input id="f-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="checkbox" for="f-consent">
+            <input id="f-consent" name="consent" type="checkbox" required aria-describedby="f-consent-error">
+            <span>I agree that Brain Industries may use the information I provide to respond to my enquiry, as described in the <a href="{{ site.documents.privacy.url }}" target="_blank" rel="noopener">Privacy Notice</a>. *</span>
+          </label>
+          <p class="field-error" id="f-consent-error" aria-live="polite"></p>
+        </div>
+        <div class="form-status" data-form-status role="status" tabindex="-1" hidden></div>
+        <div class="form-foot">
+          <p>Submissions are delivered by email to Brain Industries via a third-party form service. See our <a href="/legal/">legal information</a>.</p>
+          <button class="btn btn-primary" type="submit">Send enquiry {% icon "arrow-right" %}</button>
+        </div>
+      </form>
+      <noscript><p class="notice">The online form needs JavaScript. Please email <a href="mailto:{{ site.primaryEmail }}">{{ site.primaryEmail }}</a> or call <a href="tel:{{ site.primaryTel }}">{{ site.primaryPhone }}</a>.</p></noscript>
+    </div>
+  </div>
+</section>

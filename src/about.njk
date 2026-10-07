@@ -1,0 +1,80 @@
+---
+layout: layouts/base.njk
+title: About Us
+description: "About Brain Industries (Pty) Ltd: a Pretoria-based electrical company specialising in electrical and hazardous area (Ex) services and product supply, with more than 20 years of experience."
+---
+<section class="page-head">
+  <div class="container">
+    <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">About</li></ol>
+    <p class="eyebrow">About Brain Industries</p>
+    <h1>An electrical company built around hazardous area expertise</h1>
+    <p class="lead">Brain Industries (Pty) Ltd specialises in electrical and hazardous area services and product supply. We pride ourselves on quality and professional service delivery for all of our clients’ electrical and Ex requirements.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split wide-left">
+    <div>
+      <h2>Who we are</h2>
+      <div class="prose">
+        <p>Hazardous areas — where flammable gases, vapours or combustible dusts may be present — demand more of an electrical installation than ordinary environments. Equipment has to be correctly classified, selected, installed and maintained, and each of those steps has to be documented.</p>
+        <p>That is the work we focus on. Our services cover hazardous area classification, electrical and earthing audits, electrical and hazardous area installations and Certificates of Compliance. Alongside these, we supply flameproof and explosion-protected electrical equipment — including the full TEP Ex product range — as well as auto bindicators, Safety Roto Reflectors and LED lighting.</p>
+        <p>Our work is led by a qualified M.I.E (Master Installation Electrician) with more than 20 years of experience. That experience extends across the globe, with many completed projects for clients who are leaders in their industries.</p>
+        <p>Building on that field experience, we developed <a href="/inspectx/">InspectX</a> — a QR-code-driven digital inspection system that helps operations keep inspections structured, verified and visible to management.</p>
+      </div>
+    </div>
+    <aside class="panel" aria-label="Company details">
+      <div class="panel-head">Company details</div>
+      <div class="panel-body">
+        <dl class="spec">
+          <dt>Registered name</dt><dd>{{ site.legalName }}</dd>
+          {%- if site.registrationNumber %}<dt>Registration no.</dt><dd>{{ site.registrationNumber }}</dd>{% endif %}
+          <dt>Address</dt><dd>{{ site.address.street }}, {{ site.address.suburb }}, {{ site.address.city }}, {{ site.address.postalCode }}</dd>
+          <dt>Experience</dt><dd>More than 20 years</dd>
+          <dt>Qualification</dt><dd>M.I.E (Master Installation Electrician)</dd>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-paper section-line" aria-labelledby="approach-title">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow">How we work</p>
+        <h2 id="approach-title">What clients can expect from us</h2>
+      </div>
+      <p>Technical work in hazardous environments is only as good as its detail. These principles guide every engagement.</p>
+    </div>
+    <ul class="feature-grid">
+      <li><span class="card-icon">{% icon "shield-check" %}</span><h3>Safety and compliance first</h3><p>Classification, equipment selection and installation are approached with the hazard and the applicable requirements in mind.</p></li>
+      <li><span class="card-icon">{% icon "layers" %}</span><h3>The whole lifecycle</h3><p>Because we classify, supply, install and inspect, we understand how each step affects the next.</p></li>
+      <li><span class="card-icon">{% icon "file-check" %}</span><h3>Clear documentation</h3><p>Findings, certificates and records that your teams can understand and act on.</p></li>
+      <li><span class="card-icon">{% icon "badge-check" %}</span><h3>Experience that counts</h3><p>More than 20 years of electrical and hazardous area work, locally and internationally.</p></li>
+      <li><span class="card-icon">{% icon "wrench" %}</span><h3>Practical solutions</h3><p>Recommendations that suit the realities of operating plants and maintenance schedules.</p></li>
+      <li><span class="card-icon">{% icon "qr-code" %}</span><h3>Digital where it helps</h3><p>InspectX brings structure, traceability and reporting to ongoing inspections.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="people-title">
+  <div class="container split">
+    <div>
+      <h2 id="people-title">Speak to us directly</h2>
+      <p class="lead">You will deal directly with the people responsible for your work.</p>
+      <a class="btn btn-secondary" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Download company profile <span class="visually-hidden">(PDF)</span></a>
+    </div>
+    <ul class="contact-cards">
+      {%- for c in site.contacts %}
+      <li>
+        <p class="name">{{ c.name }}</p>
+        <a class="contact-line" href="tel:{{ c.tel }}">{% icon "phone" %}{{ c.phone }}</a>
+        <a class="contact-line" href="mailto:{{ c.email }}">{% icon "mail" %}{{ c.email }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

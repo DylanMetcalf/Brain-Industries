@@ -1,0 +1,7 @@
+[
+  { "label": "Services", "url": "/services/" },
+  { "label": "InspectX", "url": "/inspectx/" },
+  { "label": "About", "url": "/about/" },
+  { "label": "Projects", "url": "/projects/" },
+  { "label": "Contact", "url": "/contact/" }
+]
