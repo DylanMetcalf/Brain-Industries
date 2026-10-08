@@ -1,12 +1,15 @@
 <section class="cta-band" aria-labelledby="cta-title">
   <div class="container">
-    <div>
-      <h2 id="cta-title">{{ ctaTitle or "Discuss your requirements" }}</h2>
-      <p>{{ ctaText or "Tell us about your site, installation or product requirement and we will get back to you. Prefer to talk? Call" }} <a href="tel:{{ site.primaryTel }}">{{ site.primaryPhone }}</a>.</p>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn-light" href="/contact/">Request a quote {% icon "arrow-right" %}</a>
-      <a class="btn btn-ghost-light" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Company profile</a>
+    <div class="cta-inner">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="cta-title">{{ ctaTitle or "Have a site, installation or product requirement?" }}</h2>
+        <p>{{ ctaText or "Tell us what you need and we’ll come back with next steps or a quotation. Prefer to talk? Call" }} <a href="tel:{{ site.primaryTel }}">{{ site.primaryPhone }}</a>.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/contact/">Request a quote {% icon "arrow-right" %}</a>
+        <a class="btn" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Company profile</a>
+      </div>
     </div>
   </div>
 </section>

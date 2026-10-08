@@ -24,7 +24,13 @@ The build also creates `sitemap.xml`, `robots.txt`, Open Graph and structured da
 - **Vanilla CSS and JavaScript.** There is no framework. The JS is about 6 KB, and the site works without it apart from the form.
 - **@11ty/eleventy-img** resizes images to AVIF, WebP and JPEG at build time.
 - **Lucide** supplies the icons (one consistent family), inlined as SVG at build time.
-- **Fonts** are Inter (body) and Barlow Semi Condensed (headings). They're self-hosted, with no Google requests.
+- **Fonts:** Geist (text) and Geist Mono (technical labels and data), both self-hosted with no Google requests.
+- **Design:** a dark industrial theme built on the brand's wine/rose colours. The colour and font tokens are at the top of `main.css`.
+- **Interactive parts:**
+  - an Ex quick reference covering zones, EPLs, temperature classes and groups (`_includes/partials/exref.njk`)
+  - an InspectX app walkthrough (`ix-device.njk`)
+  - an illustrative manager dashboard (`ix-dash.njk`)
+  - a mobile call/quote bar
 - **Hosting:** GitHub Pages, deployed by GitHub Actions.
 - **Contact form:** [Web3Forms](https://web3forms.com), a static form-to-email service.
 

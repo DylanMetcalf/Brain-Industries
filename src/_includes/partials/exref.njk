@@ -1,0 +1,61 @@
+{#- Ex quick reference — general reference data (IEC/SANS 60079 series). Interactive with JS; all content visible without it. -#}
+<div class="exref" data-exref>
+  <div class="panel">
+    <div class="panel-head">
+      <span>Zone classification</span>
+      <div class="seg" role="group" aria-label="Atmosphere type">
+        <button type="button" data-medium-btn="gas" aria-pressed="true">Gas</button>
+        <button type="button" data-medium-btn="dust" aria-pressed="false">Dust</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      {%- set zones = [
+        { id: "0",  m: "gas",  lvl: 3, freq: "Continuous / long periods", epl: "Ga",          def: "An explosive gas atmosphere is present continuously, for long periods or frequently." },
+        { id: "1",  m: "gas",  lvl: 2, freq: "Likely in normal operation", epl: "Ga, Gb",     def: "An explosive gas atmosphere is likely to occur periodically or occasionally in normal operation." },
+        { id: "2",  m: "gas",  lvl: 1, freq: "Not likely; short duration", epl: "Ga, Gb, Gc", def: "An explosive gas atmosphere is not likely to occur in normal operation and, if it does, will persist for a short period only." },
+        { id: "20", m: "dust", lvl: 3, freq: "Continuous / long periods", epl: "Da",          def: "An explosive atmosphere in the form of a cloud of combustible dust is present continuously, for long periods or frequently." },
+        { id: "21", m: "dust", lvl: 2, freq: "Likely in normal operation", epl: "Da, Db",     def: "A cloud of combustible dust is likely to occur occasionally in normal operation." },
+        { id: "22", m: "dust", lvl: 1, freq: "Not likely; short duration", epl: "Da, Db, Dc", def: "A cloud of combustible dust is not likely to occur in normal operation and, if it does, will persist for a short period only." }
+      ] %}
+      <div class="zone-tabs" role="tablist" aria-label="Zones">
+        {%- for z in zones %}
+        <button class="zone-tab" type="button" role="tab" id="zt-{{ z.id }}" aria-controls="zp-{{ z.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" data-medium="{{ z.m }}"{% if z.m == 'dust' %} hidden{% endif %}>
+          <small>{{ z.m }}</small><b>Zone {{ z.id }}</b>
+        </button>
+        {%- endfor %}
+      </div>
+      {%- for z in zones %}
+      <div class="zone-detail" role="tabpanel" id="zp-{{ z.id }}" aria-labelledby="zt-{{ z.id }}" data-zone-panel{% if not loop.first %} data-hide{% endif %}>
+        <h3>Zone {{ z.id }} <span class="pill {{ 'pill-bad' if z.lvl == 3 else ('pill-warn' if z.lvl == 2 else 'pill-ex') }}">{{ z.m }}</span></h3>
+        <p>{{ z.def }}</p>
+        <dl class="zone-meta">
+          <div><dt>Likelihood</dt><dd>{{ z.freq }}<span class="likelihood" aria-hidden="true">{% for i in range(3) %}<i class="{{ 'on' if i < z.lvl }}"></i>{% endfor %}</span></dd></div>
+          <div><dt>Permitted EPL</dt><dd class="mono">{{ z.epl }}</dd></div>
+        </dl>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><span>Temperature class</span><span>Max. surface temp.</span></div>
+    <div class="panel-body">
+      <ul class="tclass">
+        {%- for t in [["T1",450],["T2",300],["T3",200],["T4",135],["T5",100],["T6",85]] %}
+        <li><span>{{ t[0] }}</span><span class="bar"><span data-w="{{ (t[1] / 450 * 100) | round }}"></span></span><span class="tv">≤{{ t[1] }}°C</span></li>
+        {%- endfor %}
+      </ul>
+      <ul class="gas-groups" data-group-medium="gas">
+        <li><b>IIA</b><span>Representative gas: propane</span></li>
+        <li><b>IIB</b><span>Representative gas: ethylene</span></li>
+        <li><b>IIC</b><span>Representative gases: hydrogen, acetylene</span></li>
+      </ul>
+      <ul class="gas-groups" data-group-medium="dust" hidden>
+        <li><b>IIIA</b><span>Combustible flyings</span></li>
+        <li><b>IIIB</b><span>Non-conductive dust</span></li>
+        <li><b>IIIC</b><span>Conductive dust</span></li>
+      </ul>
+      <p class="ref-note">Summary for orientation only. Classification and equipment selection must follow the applicable standards (SANS 10108, SANS/IEC 60079 series).</p>
+    </div>
+  </div>
+</div>

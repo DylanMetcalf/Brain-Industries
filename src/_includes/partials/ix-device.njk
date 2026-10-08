@@ -1,0 +1,78 @@
+{#- Illustrative InspectX app walkthrough. Steps follow the InspectX presentation. -#}
+<div class="ix-demo" data-ix-demo>
+  <div>
+    <ol class="ix-steps" role="tablist" aria-label="InspectX inspection steps">
+      {%- set ixs = [
+        ["Log in & verify competency", "Competent users conduct inspections; non-competent users have read-only access."],
+        ["Select site & inspection type", "Choose the site and zone, then visual, close or detailed — weekly or monthly."],
+        ["Scan the QR code", "Walk up to the equipment, scan its unique QR code and take a mandatory on-site photo."],
+        ["Follow the guided checks", "Answer each prompt. A “No” answer requires a compulsory comment before proceeding."],
+        ["Outcome & secure sync", "Pass, Repaired or Defect. Data is saved locally and uploaded when a connection is available."]
+      ] %}
+      {%- for st in ixs %}
+      <li role="presentation">
+        <button class="ix-step" type="button" role="tab" id="ixt-{{ loop.index }}" aria-controls="ixs-{{ loop.index }}" aria-selected="{{ 'true' if loop.first else 'false' }}" data-ix-step="{{ loop.index0 }}">
+          <span class="n" aria-hidden="true">{{ loop.index | pad }}</span>
+          <b>{{ st[0] }}</b>
+          <span>{{ st[1] }}</span>
+          <span class="ix-progress" aria-hidden="true"><i></i></span>
+        </button>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+
+  <div class="device-wrap">
+    <div class="device" aria-hidden="true">
+      <div class="device-screen">
+        <div class="device-notch"></div>
+        <div class="app-bar"><img src="/assets/images/brand/inspectx-logo-white.png" alt="" width="1069" height="625"><span class="pill pill-ok">Online</span></div>
+
+        <div class="screen is-active" id="ixs-1" role="tabpanel" aria-labelledby="ixt-1">
+          <span class="s-label">Business profile</span>
+          <span class="s-title">Sign in</span>
+          <div class="s-field">user@site-operator <span class="mono">✓</span></div>
+          <div class="s-field">•••••••••••</div>
+          <div class="s-field sel">Competency level <span class="pill pill-ok">Competent</span></div>
+          <div class="s-field">Read-only access <span class="pill pill-dim">Non-competent</span></div>
+          <div class="s-btn">Log in</div>
+        </div>
+
+        <div class="screen" id="ixs-2" role="tabpanel" aria-labelledby="ixt-2">
+          <span class="s-label">Step 2 · Site</span>
+          <span class="s-title">Where are you inspecting?</span>
+          <div class="s-row"><div class="s-field">Site 1</div><div class="s-field sel">Site 2</div></div>
+          <div class="s-row"><div class="s-field">Site 3</div><div class="s-field">Site 4</div></div>
+          <span class="s-label">Inspection type</span>
+          <div class="s-row"><div class="s-field sel">Visual</div><div class="s-field">Close</div><div class="s-field">Detailed</div></div>
+          <div class="s-row"><div class="s-field sel">Weekly</div><div class="s-field">Monthly</div></div>
+          <div class="s-btn">View zones</div>
+        </div>
+
+        <div class="screen" id="ixs-3" role="tabpanel" aria-labelledby="ixt-3">
+          <span class="s-label">Step 3 · Equipment</span>
+          <span class="s-title">Scan equipment QR</span>
+          <div class="qr-frame">{% icon "qr-code" %}</div>
+          <div class="photo-box">{% image "/assets/images/gallery/local-control-station-1.jpg", "", "160px" %}<span class="pill pill-ok">Photo captured</span></div>
+        </div>
+
+        <div class="screen" id="ixs-4" role="tabpanel" aria-labelledby="ixt-4">
+          <span class="s-label">Step 4 · Checklist</span>
+          <span class="s-title">Guided inspection</span>
+          <div class="q">Enclosure free from visible damage?<div class="yn"><span class="y">Yes</span><span>No</span></div></div>
+          <div class="q">Cable entries and glands correctly fitted?<div class="yn"><span class="y">Yes</span><span>No</span></div></div>
+          <div class="q">Equipment labels legible?<div class="yn"><span>Yes</span><span class="n">No</span></div><div class="note">Comment required to proceed…</div></div>
+        </div>
+
+        <div class="screen" id="ixs-5" role="tabpanel" aria-labelledby="ixt-5">
+          <span class="s-label">Step 5 · Result</span>
+          <div class="outcome-big">{% icon "circle-check" %}<b>PASS</b><span class="s-label">All criteria met</span></div>
+          <div class="s-row"><span class="pill pill-ok">Pass</span><span class="pill pill-warn">Repaired</span><span class="pill pill-bad">Defect</span></div>
+          <div class="sync">{% icon "cloud-upload" %} Saved locally · syncs to cloud when online</div>
+          <div class="s-btn">Submit inspection</div>
+        </div>
+      </div>
+    </div>
+    <p class="illustrative">Illustrative interface</p>
+  </div>
+</div>

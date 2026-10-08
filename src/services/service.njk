@@ -12,11 +12,12 @@ eleventyComputed:
 {%- set idx = services.indexOf(s) %}
 {%- set prev = services[idx - 1] if idx > 0 else services[services.length - 1] %}
 {%- set next = services[idx + 1] if idx < services.length - 1 else services[0] %}
-<section class="page-head">
+<section class="page-head bg-grid">
+  <span class="glow glow-b" aria-hidden="true"></span>
   <div class="container">
     <ol class="breadcrumb"><li><a href="/">Home</a></li><li><a href="/services/">Services</a></li><li aria-current="page">{{ s.title }}</li></ol>
     <span class="page-head-icon">{% icon s.icon %}</span>
-    <p class="eyebrow">{{ "Service" if s.group == "service" else "Product supply" }}</p>
+    <div class="page-head-row"><p class="eyebrow">{{ "Service" if s.group == "service" else "Product supply" }}</p><span class="pill pill-dim">{{ "S" if s.group == "service" else "P" }}-{{ (services | byGroup(s.group)).indexOf(s) + 1 | pad }}</span></div>
     <h1>{{ s.title }}</h1>
     <p class="lead">{{ s.short }}</p>
   </div>
@@ -36,12 +37,12 @@ eleventyComputed:
       </figure>
       {%- endif %}
 
-      <h2>{{ "What’s included" if s.group == "service" else "What we offer" }}</h2>
+      <h2><span class="num">01</span>{{ "What’s included" if s.group == "service" else "What we offer" }}</h2>
       <ul class="check-list">
         {%- for pt in s.points %}<li>{% icon "check" %}<span>{{ pt }}</span></li>{% endfor %}
       </ul>
 
-      <h2>Typical applications</h2>
+      <h2><span class="num">02</span>Typical applications</h2>
       <ul class="chips">
         {%- for a in s.audience %}<li>{{ a }}</li>{% endfor %}
       </ul>
@@ -57,7 +58,7 @@ eleventyComputed:
       <div class="cta-card">
         <h2>Enquire about this {{ "service" if s.group == "service" else "product" }}</h2>
         <p>Tell us about your site and requirement, and we will respond with next steps or a quotation.</p>
-        <a class="btn btn-light" href="/contact/?enquiry={{ s.slug }}#enquiry">Send an enquiry {% icon "arrow-right" %}</a>
+        <a class="btn btn-primary" href="/contact/?enquiry={{ s.slug }}#enquiry">Send an enquiry {% icon "arrow-right" %}</a>
         <ul class="contact-lines">
           {%- for c in site.contacts %}
           <li><a href="tel:{{ c.tel }}">{% icon "phone" %}{{ c.phone }} <span class="muted">· {{ c.name }}</span></a></li>
@@ -77,3 +78,15 @@ eleventyComputed:
     </aside>
   </div>
 </section>
+{%- if s.slug == "hazardous-area-classification" %}
+<section class="section section-alt section-line bg-dots" aria-labelledby="exref-title">
+  <div class="container">
+    <div class="section-head split">
+      <div><p class="eyebrow">Ex quick reference</p><h2 id="exref-title">Zones, EPLs, gas groups and temperature classes</h2></div>
+      <p>The key parameters a classification defines — and that every piece of Ex equipment must be selected against.</p>
+    </div>
+    {% include "partials/exref.njk" %}
+  </div>
+</section>
+{%- endif %}
+{% include "partials/cta.njk" %}

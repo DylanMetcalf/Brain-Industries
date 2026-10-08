@@ -1,67 +1,89 @@
 ---
 layout: layouts/base.njk
-description: "Brain Industries (Pty) Ltd, Pretoria — electrical and hazardous area (Ex) specialists. Hazardous area classification, electrical and earthing audits, installations, certificates of compliance and Ex product supply."
+description: "Brain Industries (Pty) Ltd, Pretoria — electrical and hazardous area (Ex) specialists. Hazardous area classification, electrical and earthing audits, installations, certificates of compliance, Ex product supply and InspectX digital inspections."
 bodyClass: home
 ---
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero bg-grid" aria-labelledby="hero-title">
+  <span class="glow glow-a" aria-hidden="true"></span>
+  <span class="glow glow-b" aria-hidden="true"></span>
   <div class="container hero-grid">
     <div>
-      <p class="eyebrow">Electrical · Hazardous areas · Ex products</p>
-      <h1 id="hero-title">Quality electrical services &amp; products for <em>industrial and hazardous</em> environments</h1>
-      <p class="lead">Brain Industries is an electrical company specialising in hazardous area (Ex) services and product supply. From area classification and audits to installation, certification and digital inspections — backed by more than 20 years of experience.</p>
+      <p class="chip"><span class="dot" aria-hidden="true"></span> Electrical · Hazardous areas · Ex products</p>
+      <h1 id="hero-title">Engineering safety into <span class="grad-text">hazardous environments.</span></h1>
+      <p class="lead">Quality electrical services and products for industrial and Ex installations — from hazardous area classification and audits to installation, certification and QR-code-driven digital inspections.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="/services/">Explore our services {% icon "arrow-right" %}</a>
-        <a class="btn btn-secondary" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Company profile <span class="visually-hidden">(PDF)</span></a>
+        <a class="btn btn-primary" href="/services/">Explore services {% icon "arrow-right" %}</a>
+        <a class="btn" href="/inspectx/">{% icon "qr-code" %} Discover InspectX</a>
       </div>
-      <p class="hero-sub muted">New: <a class="link-arrow" href="/inspectx/">Discover InspectX, our QR-code-driven inspection system {% icon "arrow-right" %}</a></p>
+      <ul class="readouts" aria-label="Key facts">
+        <li><strong>20+</strong><span>Years’ experience</span></li>
+        <li><strong>M.I.E</strong><span>Qualified master installation electrician</span></li>
+        <li><strong>{{ services.length }}</strong><span>Services &amp; product lines</span></li>
+      </ul>
     </div>
-    <div class="hero-media">
-      {% image "/assets/images/gallery/panel-line-up.jpg", "Line-up of orange industrial electrical panels in a plant room", "(min-width: 60em) 460px, 100vw", "eager" %}
-      <p class="hero-tag"><strong>Pretoria, South Africa</strong><span>Electrical &amp; Ex specialists</span></p>
+
+    <div class="viewport" data-reveal>
+      <div class="viewport-bar"><span>Project · Panel line-up</span><span>Electrical &amp; Ex</span></div>
+      <div class="viewport-media">
+        {% image "/assets/images/gallery/panel-line-up.jpg", "Line-up of orange industrial electrical panels in a plant room", "(min-width: 62em) 480px, 100vw", "eager" %}
+        <span class="hud-corner tl" aria-hidden="true"></span><span class="hud-corner tr" aria-hidden="true"></span>
+        <span class="hud-corner bl" aria-hidden="true"></span><span class="hud-corner br" aria-hidden="true"></span>
+        <span class="scan-line" aria-hidden="true"></span>
+        <span class="hud-label" aria-hidden="true">Pretoria · South Africa</span>
+      </div>
+      <div class="float-card" aria-hidden="true">
+        <div class="fc-top"><span>InspectX · Scan</span><span class="pill pill-ok">Pass</span></div>
+        <div class="fc-row"><span class="fc-qr">{% icon "qr-code" %}</span><span><span class="fc-title">Visual inspection</span><br><span class="fc-sub">Photo verified · synced</span></span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="facts" aria-label="Key facts">
-  <div class="container">
-    <ul class="facts-list">
-      <li class="fact">{% icon "badge-check" %}<div><strong>20+ years</strong><span>of electrical and hazardous area experience</span></div></li>
-      <li class="fact">{% icon "hard-hat" %}<div><strong>Qualified M.I.E</strong><span>Master Installation Electrician</span></div></li>
-      <li class="fact">{% icon "shield-check" %}<div><strong>Ex specialists</strong><span>Classification, installation, inspection and supply</span></div></li>
-      <li class="fact">{% icon "globe" %}<div><strong>Global experience</strong><span>Completed projects for industry-leading clients</span></div></li>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    {%- for rep in [1, 2] %}
+    <ul class="ticker-list">
+      {%- for s in services %}<li>{{ s.title }}</li>{% endfor %}
+      <li>InspectX digital inspections</li>
     </ul>
+    {%- endfor %}
   </div>
-</section>
+</div>
 
 <section class="section" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head split">
       <div>
-        <p class="eyebrow"><span class="num">01</span> What we do</p>
+        <p class="eyebrow"><span class="num">01</span> Capabilities</p>
         <h2 id="services-title">Services and products for electrical and Ex installations</h2>
       </div>
-      <p>We work across the life of an installation — establishing where the hazards are, supplying and installing the right equipment, and verifying that it remains safe and compliant.</p>
+      <p>We work across the life of an installation — establishing where the hazards are, supplying and installing the right equipment, and verifying that it stays safe and compliant.</p>
     </div>
 
     <h3 class="group-label">Services</h3>
-    <ul class="card-grid" data-reveal>
+    <ul class="bento" data-reveal>
       {%- for s in services | byGroup("service") %}
-      <li class="card">
-        <span class="card-index">{{ loop.index | pad }}</span>
-        <span class="card-icon">{% icon s.icon %}</span>
+      <li class="card spot gborder{% if loop.first %} feature{% endif %}" data-spotlight>
+        <div class="card-top"><span class="card-icon">{% icon s.icon %}</span><span class="card-index">S-{{ loop.index | pad }}</span></div>
         <h3><a href="/services/{{ s.slug }}/">{{ s.title }}</a></h3>
         <p>{{ s.short }}</p>
+        {%- if loop.first %}{% include "partials/zone-art.njk" %}{% endif %}
         <span class="link-arrow" aria-hidden="true">Learn more {% icon "arrow-right" %}</span>
       </li>
       {%- endfor %}
+      <li class="card spot gborder" data-spotlight>
+        <div class="card-top"><span class="card-icon">{% icon "qr-code" %}</span><span class="card-index">D-01</span></div>
+        <h3><a href="/inspectx/">InspectX digital inspections</a></h3>
+        <p>QR-code-driven inspections with photo verification, defect tracking and management reporting.</p>
+        <span class="link-arrow" aria-hidden="true">Explore InspectX {% icon "arrow-right" %}</span>
+      </li>
     </ul>
 
     <h3 class="group-label">Products</h3>
-    <ul class="card-grid" data-reveal>
+    <ul class="bento" data-reveal>
       {%- for s in services | byGroup("product") %}
-      <li class="card">
-        <span class="card-index">{{ loop.index | pad }}</span>
-        <span class="card-icon">{% icon s.icon %}</span>
+      <li class="card spot gborder" data-spotlight>
+        <div class="card-top"><span class="card-icon">{% icon s.icon %}</span><span class="card-index">P-{{ loop.index | pad }}</span></div>
         <h3><a href="/services/{{ s.slug }}/">{{ s.title }}</a></h3>
         <p>{{ s.short }}</p>
         <span class="link-arrow" aria-hidden="true">Learn more {% icon "arrow-right" %}</span>
@@ -71,59 +93,76 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-paper section-line" aria-labelledby="lifecycle-title">
+<section class="section section-alt section-line bg-dots" aria-labelledby="exref-title">
   <div class="container">
     <div class="section-head split">
       <div>
-        <p class="eyebrow"><span class="num">02</span> How we help</p>
+        <p class="eyebrow"><span class="num">02</span> Ex quick reference</p>
+        <h2 id="exref-title">Zones, equipment protection levels and temperature classes</h2>
+      </div>
+      <p>The fundamentals behind every hazardous area decision we make. Select a zone to see how it is defined and which equipment protection levels are permitted.</p>
+    </div>
+    {% include "partials/exref.njk" %}
+  </div>
+</section>
+
+<section class="section section-line" aria-labelledby="lifecycle-title">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow"><span class="num">03</span> How we help</p>
         <h2 id="lifecycle-title">One partner across the hazardous area lifecycle</h2>
       </div>
-      <p>Safety in a hazardous location depends on every step being done correctly. Because we work across all of them, nothing gets lost between classification, equipment, installation and inspection.</p>
+      <p>Safety in a hazardous location depends on every step being done correctly. Because we work across all of them, nothing is lost between classification, equipment, installation and inspection.</p>
     </div>
-    <ol class="lifecycle" data-reveal>
-      <li><h3>Classify</h3><p>Identify where explosive atmospheres can occur and define the zones.</p><a href="/services/hazardous-area-classification/">Area classification</a></li>
-      <li><h3>Specify &amp; supply</h3><p>Select and supply equipment suited to the zone, group and temperature class.</p><a href="/services/explosion-protected-equipment/">Ex equipment</a></li>
-      <li><h3>Install</h3><p>Install equipment so that its protection concept is maintained.</p><a href="/services/hazardous-area-installations/">Installations</a></li>
-      <li><h3>Inspect &amp; certify</h3><p>Audit electrical and earthing systems and certify compliance.</p><a href="/services/electrical-earthing-audits/">Audits</a> · <a href="/services/certificate-of-compliance/">CoC</a></li>
-      <li class="is-digital"><h3>Digitise</h3><p>Record ongoing inspections digitally, with QR codes and photo verification.</p><a href="/inspectx/">InspectX</a></li>
+    <ol class="pipeline" data-reveal>
+      <li><span class="node" aria-hidden="true"></span><h3>Classify</h3><p>Identify where explosive atmospheres can occur and define the zones.</p><a href="/services/hazardous-area-classification/">Area classification →</a></li>
+      <li><span class="node" aria-hidden="true"></span><h3>Specify &amp; supply</h3><p>Select and supply equipment suited to the zone, group and temperature class.</p><a href="/services/explosion-protected-equipment/">Ex equipment →</a></li>
+      <li><span class="node" aria-hidden="true"></span><h3>Install</h3><p>Install equipment so that its protection concept is maintained.</p><a href="/services/hazardous-area-installations/">Installations →</a></li>
+      <li><span class="node" aria-hidden="true"></span><h3>Inspect &amp; certify</h3><p>Audit electrical and earthing systems and certify compliance.</p><a href="/services/electrical-earthing-audits/">Audits →</a></li>
+      <li class="is-digital"><span class="node" aria-hidden="true"></span><h3>Digitise</h3><p>Record ongoing inspections with QR codes and photo verification.</p><a href="/inspectx/">InspectX →</a></li>
     </ol>
   </div>
 </section>
 
-<section class="section dark qr-texture" aria-labelledby="ix-title">
-  <div class="container ix-band-grid">
-    <div>
-      <img class="ix-logo" src="/assets/images/brand/inspectx-logo-white.png" alt="InspectX" width="1069" height="625" loading="lazy">
-      <p class="eyebrow"><span class="num">03</span> Digital inspections</p>
-      <h2 id="ix-title">Lose the paperwork. Inspect with a scan.</h2>
-      <p class="lead">InspectX is a web-based, QR-code-driven inspection platform for hazardous and industrial environments. Inspectors scan the equipment, follow guided checks and capture photo evidence — managers see results, defects and compliance status in one portal.</p>
-      <div class="btn-row">
-        <a class="btn btn-light" href="/inspectx/">Discover InspectX {% icon "arrow-right" %}</a>
-        <a class="btn btn-ghost-light" href="{{ site.documents.inspectxOnePager.url }}" target="_blank" rel="noopener">{% icon "file-down" %} One-pager <span class="visually-hidden">(PDF)</span></a>
+<section class="section section-alt section-line bg-dots" aria-labelledby="ix-title">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <img class="ix-logo" src="/assets/images/brand/inspectx-logo-white.png" alt="InspectX" width="1069" height="625" loading="lazy">
+        <p class="eyebrow"><span class="num">04</span> Digital inspections</p>
+        <h2 id="ix-title">Lose the paperwork. <span class="grad-text">Inspect with a scan.</span></h2>
+      </div>
+      <div>
+        <p>InspectX is a web-based, QR-code-driven inspection platform for hazardous and industrial environments. Step through an inspection below.</p>
+        <p class="mt-1"><a class="link-arrow" href="/inspectx/">Explore InspectX {% icon "arrow-right" %}</a></p>
       </div>
     </div>
-    <ul class="ix-feature-list" data-reveal>
-      <li>{% icon "qr-code" %}<div><strong>QR codes &amp; photo verification</strong><span>On-site proof and instant retrieval of equipment information.</span></div></li>
-      <li>{% icon "clipboard-check" %}<div><strong>Visual, close &amp; detailed inspections</strong><span>Structured checks aligned with periodic Ex inspection requirements.</span></div></li>
-      <li>{% icon "chart-column" %}<div><strong>Management reporting</strong><span>Real-time results, defect tracking and reports by site, date or equipment.</span></div></li>
-      <li>{% icon "users" %}<div><strong>Multiple users in the field</strong><span>Several devices can capture inspections simultaneously.</span></div></li>
-    </ul>
+    {% include "partials/ix-device.njk" %}
   </div>
 </section>
 
-<section class="section" aria-labelledby="about-title">
-  <div class="container split wide-left">
+<section class="section section-line" aria-labelledby="about-title">
+  <div class="container split wide-left center">
     <div>
-      <p class="eyebrow"><span class="num">04</span> About us</p>
+      <p class="eyebrow"><span class="num">05</span> About us</p>
       <h2 id="about-title">Electrical expertise with a hazardous area focus</h2>
       <div class="prose">
-        <p>We are an electrical company specialising in electrical and hazardous area services and product supply. We take pride in quality, professional service delivery for all of your electrical and Ex requirements.</p>
-        <p>Our work is led by a qualified M.I.E with more than 20 years of experience, and our experience extends across the globe — with many completed projects for clients who are leaders in their industries.</p>
+        <p>We are an electrical company specialising in electrical and hazardous area services and product supply, and we take pride in quality, professional service delivery for all of your electrical and Ex requirements.</p>
+        <p>Our work is led by a qualified M.I.E with more than 20 years of experience — experience that extends across the globe, with many completed projects for clients who are leaders in their industries.</p>
       </div>
       <a class="link-arrow" href="/about/">More about Brain Industries {% icon "arrow-right" %}</a>
     </div>
-    <div class="panel" data-reveal>
-      <div class="panel-head">Company at a glance</div>
+    <div class="stack" data-reveal>
+    <div class="viewport">
+      <div class="viewport-media">
+        {% image "/assets/images/gallery/magnet-panels.jpg", "Orange magnet panels on stands in a workshop", "(min-width: 62em) 480px, 100vw" %}
+        <span class="hud-corner tl" aria-hidden="true"></span><span class="hud-corner br" aria-hidden="true"></span>
+        <span class="hud-label" aria-hidden="true">Workshop · Magnet panels</span>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><span>Company at a glance</span><span class="pill pill-ok">Active</span></div>
       <div class="panel-body">
         <dl class="spec">
           <dt>Company</dt><dd>{{ site.legalName }}</dd>
@@ -135,20 +174,21 @@ bodyClass: home
         </dl>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
-<section class="section section-paper section-line" aria-labelledby="projects-title">
+<section class="section section-alt section-line" aria-labelledby="projects-title">
   <div class="container">
     <div class="section-head split">
       <div>
-        <p class="eyebrow"><span class="num">05</span> Projects</p>
+        <p class="eyebrow"><span class="num">06</span> Projects</p>
         <h2 id="projects-title">Recent work and products</h2>
       </div>
-      <p>A selection of control stations, panels, installations and products from our work. <a href="/projects/">View the full gallery</a>.</p>
+      <p>Control stations, panels, installations and products from our work. <a href="/projects/">View the full gallery →</a></p>
     </div>
     <ul class="gallery gallery-preview" data-reveal>
-      {%- set picks = [gallery.items[0], gallery.items[2], gallery.items[5], gallery.items[10]] %}
+      {%- set picks = [gallery.items[1], gallery.items[3], gallery.items[5], gallery.items[10]] %}
       {%- for item in picks %}
       <li>
         <figure>
