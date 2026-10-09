@@ -5,7 +5,7 @@ These items need a person to confirm them before or soon after launch. Every val
 1. **Office address (conflict).** The old website says *378 Main Street, Waterkloof*. The company profile and PAIA Manual (June 2026) say *402 Julius Jeppe Street, Waterkloof, Pretoria, 0181*. The new site uses **402 Julius Jeppe Street**. Please confirm.
 2. **Registration number 2016/099333/07.** Taken from the Privacy Notice and shown in the footer and on the About page. Please confirm it is correct.
 3. **"M.I.E".** Written out as *Master Installation Electrician*. Please confirm that expansion, and whether a name or registration should be shown.
-4. **Experience claims.** "More than 20 years of experience" and "experience across the globe … clients who are leaders in the industry" come from the company profile and old site. Confirm they are still current.
+4. **Experience claims.** "More than 25 years of experience" (updated by you, 9 Oct 2026) and "experience across the globe … clients who are leaders in the industry" come from the company profile and old site. Confirm they are still current.
 5. **TEP Ex.** The old site says "We supply the full range of TEP Ex products". Confirm the supply relationship is current. The TEP Ex logo was deliberately not used.
 6. **HALO LED lighting.** The profile lists "LED Lighting HALO". Confirm that HALO is a range you supply, and whether any detail should be added.
 7. **Safety Roto Reflectors.** The description and the colours listed (red, orange, yellow, green, blue) are based on product photos. Confirm the colours, uses and mounting options.

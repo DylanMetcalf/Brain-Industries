@@ -896,3 +896,16 @@ a.contact-line:hover { color: var(--strong); }
 /* backdrop-filter on the header would trap the fixed mobile menu — disable it while open */
 body.nav-open .site-header { backdrop-filter: none; background: rgb(var(--bg-rgb)); }
 @media (max-width: 62em) { .site-nav, .site-nav.is-open { background: rgb(var(--bg-rgb)); backdrop-filter: none; } }
+
+/* Clean dark hero */
+.hero.theme-dark { background: radial-gradient(70% 90% at 92% 10%, rgb(138 11 64 / 0.35), transparent 60%), linear-gradient(180deg, #0b0c10, #111218); border-bottom: 0; }
+.hero.theme-dark .viewport { padding: 0; border: 0; background: none; box-shadow: 0 40px 80px -30px rgb(0 0 0 / 0.9); }
+.hero.theme-dark .viewport-media { border-radius: var(--radius-lg); }
+.hero.theme-dark .viewport-media::after { background: linear-gradient(180deg, transparent 65%, rgb(0 0 0 / 0.35)); }
+.hero .fc-qr { background: var(--grad); color: #fff; }
+.hero .float-card { bottom: 2rem; }
+.theme-dark .readouts { border-color: var(--line-2); }
+.theme-dark .eyebrow .num::after { color: var(--line-3); }
+.section-tight { padding-block: clamp(3rem, 2rem + 3vw, 5rem); }
+@media (min-width: 64em) { .why-grid { grid-template-columns: repeat(4, 1fr); } }
+.why-grid li { background: var(--surface); }

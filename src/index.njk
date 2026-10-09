@@ -3,37 +3,30 @@ layout: layouts/base.njk
 description: "Brain Industries (Pty) Ltd, Pretoria — electrical and hazardous area (Ex) specialists. Hazardous area classification, electrical and earthing audits, installations, certificates of compliance, Ex product supply and InspectX digital inspections."
 bodyClass: home
 ---
-<section class="hero bg-grid" aria-labelledby="hero-title">
-  <span class="glow glow-a" aria-hidden="true"></span>
-  <span class="glow glow-b" aria-hidden="true"></span>
-  <img class="brand-watermark" src="/assets/images/brand/brain-mark.png" alt="" width="367" height="649" aria-hidden="true">
+<section class="hero theme-dark" aria-labelledby="hero-title">
   <div class="container hero-grid">
     <div>
-      <p class="chip"><span class="dot" aria-hidden="true"></span> Electrical · Hazardous areas · Ex products</p>
+      <p class="chip"><span class="dot" aria-hidden="true"></span> 25+ years · Electrical &amp; hazardous areas</p>
       <h1 id="hero-title">Electrical &amp; <span class="grad-text">hazardous area</span> specialists for South African industry.</h1>
-      <p class="lead">Quality electrical services and products for industrial and Ex installations — from hazardous area classification and audits to installation, certification and QR-code-driven digital inspections.</p>
+      <p class="lead">For more than 25 years we have helped industry classify, equip, install and inspect electrical systems where the risk is highest — with the technical depth to get it right and the documentation to prove it.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="/services/">Explore services {% icon "arrow-right" %}</a>
         <a class="btn" href="/inspectx/">{% icon "qr-code" %} Discover InspectX</a>
       </div>
       <ul class="readouts" aria-label="Key facts">
-        <li><strong>20+</strong><span>Years’ experience</span></li>
+        <li><strong>25+</strong><span>Years’ experience</span></li>
         <li><strong>M.I.E</strong><span>Qualified master installation electrician</span></li>
         <li><strong>{{ services.length }}</strong><span>Services &amp; product lines</span></li>
       </ul>
     </div>
 
     <div class="viewport" data-reveal>
-      <div class="viewport-bar"><span>Project · Panel line-up</span><span>Electrical &amp; Ex</span></div>
-      <div class="viewport-media">
-        {% image "/assets/images/gallery/panel-line-up.jpg", "Line-up of orange industrial electrical panels in a plant room", "(min-width: 62em) 480px, 100vw", "eager" %}
-        <span class="hud-corner tl" aria-hidden="true"></span><span class="hud-corner tr" aria-hidden="true"></span>
-        <span class="hud-corner bl" aria-hidden="true"></span><span class="hud-corner br" aria-hidden="true"></span>
-        <span class="hud-label" aria-hidden="true">Pretoria · South Africa</span>
+            <div class="viewport-media">
+        {% image "/assets/images/gallery/distribution-board-orange-portrait.jpg", "Open orange control panel with breakers, contactors and neatly dressed wiring", "(min-width: 62em) 480px, 100vw", "eager" %}
+        
       </div>
       <div class="float-card" aria-hidden="true">
-        <div class="fc-top"><span>InspectX · Scan</span><span class="pill pill-ok">Pass</span></div>
-        <div class="fc-row"><span class="fc-qr">{% icon "qr-code" %}</span><span><span class="fc-title">Visual inspection</span><br><span class="fc-sub">Photo verified · synced</span></span></div>
+        <div class="fc-row"><span class="fc-qr">{% icon "badge-check" %}</span><span><span class="fc-title">Led by a qualified M.I.E</span><br><span class="fc-sub">25+ years · Pretoria, South Africa</span></span></div>
       </div>
     </div>
   </div>
@@ -50,7 +43,26 @@ bodyClass: home
   </div>
 </div>
 
-<section class="section" aria-labelledby="services-title">
+
+<section class="section section-tight" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow">Why Brain Industries</p>
+        <h2 id="why-title">Specialists, not generalists</h2>
+      </div>
+      <p>Hazardous area work leaves no room for guesswork. Clients come to us for depth of knowledge, accountability and a single team that understands every stage of an Ex installation.</p>
+    </div>
+    <ul class="feature-grid why-grid" data-reveal>
+      <li><span class="card-icon">{% icon "badge-check" %}</span><h3>25+ years of experience</h3><p>More than two decades of electrical and hazardous area work, with completed projects locally and internationally.</p></li>
+      <li><span class="card-icon">{% icon "hard-hat" %}</span><h3>Qualified M.I.E</h3><p>Work led by a qualified Master Installation Electrician — technical accountability at the top.</p></li>
+      <li><span class="card-icon">{% icon "layers" %}</span><h3>The full Ex lifecycle</h3><p>Classification, equipment supply, installation, audits and certification from one team.</p></li>
+      <li><span class="card-icon">{% icon "qr-code" %}</span><h3>Our own inspection platform</h3><p>InspectX turns periodic inspections into traceable, photo-verified digital records.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt section-line" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -94,7 +106,7 @@ bodyClass: home
 </section>
 
 
-<section class="section section-alt section-line" aria-labelledby="env-title">
+<section class="section section-line" aria-labelledby="env-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -118,7 +130,7 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-line bg-dots" aria-labelledby="exref-title">
+<section class="section theme-dark" aria-labelledby="exref-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -202,7 +214,7 @@ bodyClass: home
       <h2 id="about-title">Electrical expertise with a hazardous area focus</h2>
       <div class="prose">
         <p>We are an electrical company specialising in electrical and hazardous area services and product supply, and we take pride in quality, professional service delivery for all of your electrical and Ex requirements.</p>
-        <p>Our work is led by a qualified M.I.E with more than 20 years of experience — experience that extends across the globe, with many completed projects for clients who are leaders in their industries.</p>
+        <p>Our work is led by a qualified M.I.E with more than 25 years of experience — experience that extends across the globe, with many completed projects for clients who are leaders in their industries.</p>
       </div>
       <a class="link-arrow" href="/about/">More about Brain Industries {% icon "arrow-right" %}</a>
     </div>
@@ -221,7 +233,7 @@ bodyClass: home
           <dt>Company</dt><dd>{{ site.legalName }}</dd>
           <dt>Based in</dt><dd>{{ site.address.suburb }}, {{ site.address.city }}</dd>
           <dt>Focus</dt><dd>Electrical &amp; hazardous area (Ex) services and products</dd>
-          <dt>Experience</dt><dd>20+ years</dd>
+          <dt>Experience</dt><dd>25+ years</dd>
           <dt>Qualification</dt><dd>M.I.E (Master Installation Electrician)</dd>
           <dt>Digital product</dt><dd>InspectX inspection system</dd>
         </dl>
