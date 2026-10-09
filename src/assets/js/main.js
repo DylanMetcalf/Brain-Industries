@@ -322,7 +322,7 @@
       tabs.forEach((t, j) => {
         const on = j === idx;
         t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1;
-        const bar = t.querySelector(".sx-bar i"); bar.classList.remove("run");
+        const bar = panels[j].querySelector(".sx-bar i"); bar.classList.remove("run");
         if (on && auto && inView && !paused) { void bar.offsetWidth; bar.classList.add("run"); }
       });
       panels.forEach((p, j) => { p.hidden = j !== idx; p.classList.toggle("is-active", j === idx); });

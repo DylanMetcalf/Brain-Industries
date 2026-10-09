@@ -17,8 +17,14 @@
       "Gas / dust group and temperature class (T-rating) determination",
       "Documentation to support Ex equipment selection, installation and inspection"
     ],
-    "audience": ["Process and petrochemical plants", "Fuel storage and handling", "Facilities handling combustible dusts", "New installations, plant changes and extensions"],
-    "image": null
+    "audience": [
+      "Process and petrochemical plants",
+      "Fuel storage and handling",
+      "Facilities handling combustible dusts",
+      "New installations, plant changes and extensions"
+    ],
+    "image": null,
+    "label": "Area Classification"
   },
   {
     "slug": "electrical-earthing-audits",
@@ -38,9 +44,15 @@
       "Electrical audits in hazardous (Ex) areas",
       "Clear, prioritised findings and recommended corrective actions"
     ],
-    "audience": ["Plant and maintenance managers", "Operations with ageing installations", "Sites preparing for compliance reviews", "Hazardous area facilities"],
+    "audience": [
+      "Plant and maintenance managers",
+      "Operations with ageing installations",
+      "Sites preparing for compliance reviews",
+      "Hazardous area facilities"
+    ],
     "image": "/assets/images/gallery/earth-mat-mv-switchgear.jpg",
-    "imageAlt": "Earth mat warning sign mounted on a brick wall next to MV switchgear"
+    "imageAlt": "Earth mat warning sign mounted on a brick wall next to MV switchgear",
+    "label": "Electrical & Earthing Audits"
   },
   {
     "slug": "hazardous-area-installations",
@@ -60,9 +72,15 @@
       "Cabling, cable entries and glanding appropriate to the protection concept",
       "Earthing and bonding of installed equipment"
     ],
-    "audience": ["New plant and expansions", "Equipment replacements and upgrades", "Hazardous area facilities", "Industrial and mining operations"],
+    "audience": [
+      "New plant and expansions",
+      "Equipment replacements and upgrades",
+      "Hazardous area facilities",
+      "Industrial and mining operations"
+    ],
     "image": "/assets/images/gallery/local-control-station-open.jpg",
-    "imageAlt": "Open local control station panel showing meters, indicator lamps and push buttons"
+    "imageAlt": "Open local control station panel showing meters, indicator lamps and push buttons",
+    "label": "Ex Installations"
   },
   {
     "slug": "certificate-of-compliance",
@@ -82,8 +100,14 @@
       "Certificate of Compliance and test report",
       "Supplementary certificates for alterations and additions"
     ],
-    "audience": ["Commercial and industrial property owners", "Property transfers", "New installations and alterations", "Facilities managers"],
-    "image": null
+    "audience": [
+      "Commercial and industrial property owners",
+      "Property transfers",
+      "New installations and alterations",
+      "Facilities managers"
+    ],
+    "image": null,
+    "label": "Certificate of Compliance"
   },
   {
     "slug": "explosion-protected-equipment",
@@ -103,9 +127,15 @@
       "Selection support based on zone, group and temperature class",
       "Supply aligned with our installation and inspection services"
     ],
-    "audience": ["Procurement and engineering teams", "Maintenance departments", "Contractors working in Ex areas", "Projects and plant upgrades"],
+    "audience": [
+      "Procurement and engineering teams",
+      "Maintenance departments",
+      "Contractors working in Ex areas",
+      "Projects and plant upgrades"
+    ],
     "image": "/assets/images/gallery/panel-line-up.jpg",
-    "imageAlt": "Line-up of orange industrial electrical panels in a plant room"
+    "imageAlt": "Line-up of orange industrial electrical panels in a plant room",
+    "label": "Ex Equipment"
   },
   {
     "slug": "auto-bindicators",
@@ -125,10 +155,16 @@
       "For bins, silos, hoppers and chutes",
       "Application advice on selection and installation"
     ],
-    "audience": ["Bulk material handling", "Processing plants", "Mining and minerals", "Agricultural storage"],
+    "audience": [
+      "Bulk material handling",
+      "Processing plants",
+      "Mining and minerals",
+      "Agricultural storage"
+    ],
     "image": "/assets/images/products/auto-bindicator.jpg",
     "imageAlt": "Rotary paddle bindicator unit with enclosure and paddle shaft",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "label": "Auto Bindicators"
   },
   {
     "slug": "safety-roto-reflectors",
@@ -148,10 +184,16 @@
       "Supports colour coding of equipment and hazards",
       "Supplied in quantities to suit your site"
     ],
-    "audience": ["Mining and industrial sites", "Vehicle and equipment marking", "Obstacle and route marking", "Safety officers"],
+    "audience": [
+      "Mining and industrial sites",
+      "Vehicle and equipment marking",
+      "Obstacle and route marking",
+      "Safety officers"
+    ],
     "image": "/assets/images/products/safety-roto-reflector.jpg",
     "imageAlt": "Red Safety Roto Reflector with orange reflective cups",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "label": "Roto Reflectors"
   },
   {
     "slug": "led-lighting",
@@ -171,8 +213,14 @@
       "Guidance on fittings for hazardous areas",
       "Supply aligned with our installation services"
     ],
-    "audience": ["Plants and workshops", "Underground and mining environments", "Hazardous area facilities", "Lighting upgrades"],
+    "audience": [
+      "Plants and workshops",
+      "Underground and mining environments",
+      "Hazardous area facilities",
+      "Lighting upgrades"
+    ],
     "image": "/assets/images/products/led-lighting-tunnel.jpg",
-    "imageAlt": "Underground mine tunnel lit by a line of LED lights with a vehicle in the foreground"
+    "imageAlt": "Underground mine tunnel lit by a line of LED lights with a vehicle in the foreground",
+    "label": "LED Lighting"
   }
 ]
