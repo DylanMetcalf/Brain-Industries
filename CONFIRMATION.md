@@ -22,3 +22,7 @@ These items need a person to confirm them before or soon after launch. Every val
     - SAP integration is shown as "In progress". Confirm its current status.
     - The InspectX logo currently on the site was taken from the old site. Replace it if a new version exists.
 16. **Domain registrar.** Confirm where `brainindustriessa.com` is registered (possibly through Wix) before you cancel Wix (see HANDOVER §6).
+17. **New homepage information sections.** Please review these sections, which give general industry context:
+    - **"Where explosive atmospheres occur":** typical environments only, not a client list.
+    - **"Legislation and standards":** OHS Act & Electrical Installation Regulations, SANS 10142-1, SANS 10108, SANS 60079-0/-14/-17, each mapped to a service. Confirm the mapping reflects how you work.
+18. **InspectX mock-ups.** The phone walkthrough and the manager dashboard use made-up example data, labelled "Illustrative". Confirm you're happy to show them.

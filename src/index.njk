@@ -6,10 +6,11 @@ bodyClass: home
 <section class="hero bg-grid" aria-labelledby="hero-title">
   <span class="glow glow-a" aria-hidden="true"></span>
   <span class="glow glow-b" aria-hidden="true"></span>
+  <img class="brand-watermark" src="/assets/images/brand/brain-mark.png" alt="" width="367" height="649" aria-hidden="true">
   <div class="container hero-grid">
     <div>
       <p class="chip"><span class="dot" aria-hidden="true"></span> Electrical · Hazardous areas · Ex products</p>
-      <h1 id="hero-title">Engineering safety into <span class="grad-text">hazardous environments.</span></h1>
+      <h1 id="hero-title">Electrical &amp; <span class="grad-text">hazardous area</span> specialists for South African industry.</h1>
       <p class="lead">Quality electrical services and products for industrial and Ex installations — from hazardous area classification and audits to installation, certification and QR-code-driven digital inspections.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="/services/">Explore services {% icon "arrow-right" %}</a>
@@ -28,7 +29,6 @@ bodyClass: home
         {% image "/assets/images/gallery/panel-line-up.jpg", "Line-up of orange industrial electrical panels in a plant room", "(min-width: 62em) 480px, 100vw", "eager" %}
         <span class="hud-corner tl" aria-hidden="true"></span><span class="hud-corner tr" aria-hidden="true"></span>
         <span class="hud-corner bl" aria-hidden="true"></span><span class="hud-corner br" aria-hidden="true"></span>
-        <span class="scan-line" aria-hidden="true"></span>
         <span class="hud-label" aria-hidden="true">Pretoria · South Africa</span>
       </div>
       <div class="float-card" aria-hidden="true">
@@ -93,11 +93,36 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-alt section-line bg-dots" aria-labelledby="exref-title">
+
+<section class="section section-alt section-line" aria-labelledby="env-title">
   <div class="container">
     <div class="section-head split">
       <div>
-        <p class="eyebrow"><span class="num">02</span> Ex quick reference</p>
+        <p class="eyebrow"><span class="num">02</span> Industry context</p>
+        <h2 id="env-title">Where explosive atmospheres occur</h2>
+      </div>
+      <p>Hazardous areas exist wherever flammable gases, vapours or combustible dusts can mix with air. These are typical environments where classification, Ex equipment and periodic inspection apply.</p>
+    </div>
+    <ul class="env-grid" data-reveal>
+      {%- for e in [
+        ["flame", "Petrochemical &amp; refining", "Flammable gases and vapours from process plant, pumps, vents and sampling points.", ["Gas", "Zones 0–2"]],
+        ["fuel", "Fuel storage &amp; handling", "Tank farms, depots, loading bays and dispensing, where vapour can collect around equipment.", ["Gas", "Zones 1–2"]],
+        ["pickaxe", "Mining &amp; minerals", "Operations where methane or combustible dusts may be present, alongside conveyors and bulk handling.", ["Gas", "Dust"]],
+        ["wheat", "Grain, sugar &amp; food", "Silos, mills and conveyors handling fine organic powders that form explosive dust clouds.", ["Dust", "Zones 20–22"]],
+        ["flask-conical", "Chemical, pharma &amp; coatings", "Solvent handling, mixing, spray booths and powder processing.", ["Gas", "Dust"]],
+        ["droplets", "Wastewater &amp; biogas", "Digesters, gas holders and pump stations where methane is produced.", ["Gas", "Zones 1–2"]]
+      ] %}
+      <li class="env"><h3>{% icon e[0] %} {{ e[1] | safe }}</h3><p>{{ e[2] }}</p><span class="tags">{% for t in e[3] %}<span class="pill {{ 'pill-ex' if t == 'Dust' or 'Zones 20' in t else 'pill-dim' }}">{{ t }}</span>{% endfor %}</span></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section-line bg-dots" aria-labelledby="exref-title">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow"><span class="num">03</span> Ex quick reference</p>
         <h2 id="exref-title">Zones, equipment protection levels and temperature classes</h2>
       </div>
       <p>The fundamentals behind every hazardous area decision we make. Select a zone to see how it is defined and which equipment protection levels are permitted.</p>
@@ -106,11 +131,38 @@ bodyClass: home
   </div>
 </section>
 
+<section class="section section-line" aria-labelledby="std-title">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow">Regulatory framework</p>
+        <h2 id="std-title">The legislation and standards behind the work</h2>
+      </div>
+      <p>Electrical and Ex work in South Africa sits within a defined legal and standards framework. This is how our services map to it.</p>
+    </div>
+    <div class="std-wrap" data-reveal>
+      <table class="std-table">
+        <thead><tr><th scope="col">Reference</th><th scope="col">What it covers</th><th scope="col">Related service</th></tr></thead>
+        <tbody>
+          <tr><td>OHS Act 85 of 1993</td><td>Electrical Installation Regulations, 2009 — the legal basis for the Certificate of Compliance.</td><td><a href="/services/certificate-of-compliance/">Certificate of Compliance</a></td></tr>
+          <tr><td>SANS 10142-1</td><td>The wiring of premises — low-voltage electrical installations.</td><td><a href="/services/hazardous-area-installations/">Installations</a></td></tr>
+          <tr><td>SANS 10108</td><td>Classification of hazardous locations and selection of equipment for use in them.</td><td><a href="/services/hazardous-area-classification/">Area classification</a></td></tr>
+          <tr><td>SANS 60079-0</td><td>General requirements for Ex equipment, including equipment protection levels and marking.</td><td><a href="/services/explosion-protected-equipment/">Ex equipment</a></td></tr>
+          <tr><td>SANS 60079-14</td><td>Design, selection and erection of electrical installations in explosive atmospheres.</td><td><a href="/services/hazardous-area-installations/">Ex installations</a></td></tr>
+          <tr><td>SANS 60079-17</td><td>Inspection and maintenance of electrical installations in explosive atmospheres.</td><td><a href="/services/electrical-earthing-audits/">Audits</a> · <a href="/inspectx/">InspectX</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ref-note">General reference only. Always apply the current edition of each standard and regulation.</p>
+  </div>
+</section>
+
+
 <section class="section section-line" aria-labelledby="lifecycle-title">
   <div class="container">
     <div class="section-head split">
       <div>
-        <p class="eyebrow"><span class="num">03</span> How we help</p>
+        <p class="eyebrow"><span class="num">04</span> How we help</p>
         <h2 id="lifecycle-title">One partner across the hazardous area lifecycle</h2>
       </div>
       <p>Safety in a hazardous location depends on every step being done correctly. Because we work across all of them, nothing is lost between classification, equipment, installation and inspection.</p>
@@ -125,12 +177,13 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-alt section-line bg-dots" aria-labelledby="ix-title">
+<section class="section theme-dark section-line" aria-labelledby="ix-title">
+  <img class="brand-watermark" src="/assets/images/brand/brain-mark.png" alt="" width="367" height="649" aria-hidden="true">
   <div class="container">
     <div class="section-head split">
       <div>
         <img class="ix-logo" src="/assets/images/brand/inspectx-logo-white.png" alt="InspectX" width="1069" height="625" loading="lazy">
-        <p class="eyebrow"><span class="num">04</span> Digital inspections</p>
+        <p class="eyebrow"><span class="num">05</span> Digital inspections</p>
         <h2 id="ix-title">Lose the paperwork. <span class="grad-text">Inspect with a scan.</span></h2>
       </div>
       <div>
@@ -145,7 +198,7 @@ bodyClass: home
 <section class="section section-line" aria-labelledby="about-title">
   <div class="container split wide-left center">
     <div>
-      <p class="eyebrow"><span class="num">05</span> About us</p>
+      <p class="eyebrow"><span class="num">06</span> About us</p>
       <h2 id="about-title">Electrical expertise with a hazardous area focus</h2>
       <div class="prose">
         <p>We are an electrical company specialising in electrical and hazardous area services and product supply, and we take pride in quality, professional service delivery for all of your electrical and Ex requirements.</p>
@@ -182,7 +235,7 @@ bodyClass: home
   <div class="container">
     <div class="section-head split">
       <div>
-        <p class="eyebrow"><span class="num">06</span> Projects</p>
+        <p class="eyebrow"><span class="num">07</span> Projects</p>
         <h2 id="projects-title">Recent work and products</h2>
       </div>
       <p>Control stations, panels, installations and products from our work. <a href="/projects/">View the full gallery →</a></p>
