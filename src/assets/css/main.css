@@ -33,8 +33,8 @@
   --grad-text: linear-gradient(100deg, #ff7a94 0%, #f0325a 45%, #c0164a 100%);
 
   /* Surfaces */
-  --bg: #fbfaf8;
-  --bg-2: #f4f2ee;
+  --bg: #ffffff;
+  --bg-2: #f5f4f1;
   --surface: #ffffff;
   --surface-2: #f7f5f2;
   --surface-3: #ece9e4;
@@ -48,7 +48,7 @@
   --accent-text: #8a0b40;
   --icon-on-tint: #8a0b40;
   --tint: 20 18 16;
-  --bg-rgb: 251 250 248;
+  --bg-rgb: 255 255 255;
   --glow-op: 0.22;
   --text-2: #3b3d43;
   --muted: #5c5f67;
@@ -89,10 +89,10 @@
 /* Dark brand bands — InspectX, call to action, footer and device mock-ups */
 .theme-dark, .site-footer, .cta-inner, .device, .float-card, .lightbox {
   color-scheme: dark;
-  --bg: #0b0c10; --bg-2: #101116; --surface: #14161c; --surface-2: #1a1d24; --surface-3: #222630;
+  --bg: #181b22; --bg-2: #1e222b; --surface: #242934; --surface-2: #2b303c; --surface-3: #343a48;
   --line: rgb(var(--tint) / 0.08); --line-2: rgb(var(--tint) / 0.13); --line-3: rgb(var(--tint) / 0.22);
-  --text: #eff0f3; --strong: #fff; --text-2: #c3c6ce; --muted: #9da1ab; --faint: #8a8e98;
-  --accent-text: #ff8aa2; --icon-on-tint: #fff; --tint: 255 255 255; --bg-rgb: 11 12 16; --glow-op: 0.55;
+  --text: #f3f4f6; --strong: #fff; --text-2: #d0d3da; --muted: #aeb2bc; --faint: #9a9ea8;
+  --accent-text: #ff8aa2; --icon-on-tint: #fff; --tint: 255 255 255; --bg-rgb: 24 27 34; --glow-op: 0.55;
   --ok: #34d399; --warn: #fbbf24; --bad: #f87171; --focus: #7cc4ff;
   --shadow: 0 1px 0 rgb(var(--tint) / 0.04) inset, 0 20px 40px -24px rgb(0 0 0 / 0.8);
   color: var(--text-2);
@@ -916,7 +916,7 @@ body.nav-open .site-header { backdrop-filter: none; background: rgb(var(--bg-rgb
    ========================================================================== */
 .hero.theme-light { background: radial-gradient(60% 70% at 78% 45%, rgb(245 197 24 / 0.16), transparent 65%), linear-gradient(180deg, #fff, var(--bg)); border-bottom: 0; }
 .hero.theme-light .hero-grid { padding-block: clamp(3rem, 2rem + 4vw, 6rem); }
-.section-ix { background: radial-gradient(60% 80% at 100% 0%, rgb(138 11 64 / 0.35), transparent 60%), var(--bg); }
+.section-ix { background: radial-gradient(60% 80% at 100% 0%, rgb(168 21 64 / 0.4), transparent 60%), var(--bg); }
 
 /* Ex stage */
 .ex-stage { position: relative; aspect-ratio: 1; width: min(100%, 520px); margin-inline: auto; display: grid; place-items: center; }
