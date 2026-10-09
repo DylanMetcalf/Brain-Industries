@@ -12,12 +12,12 @@ eleventyComputed:
 {%- set idx = services.indexOf(s) %}
 {%- set prev = services[idx - 1] if idx > 0 else services[services.length - 1] %}
 {%- set next = services[idx + 1] if idx < services.length - 1 else services[0] %}
-<section class="page-head bg-grid">
+<section class="page-head theme-light bg-grid">
   <span class="glow glow-b" aria-hidden="true"></span>
   <div class="container">
     <ol class="breadcrumb"><li><a href="/">Home</a></li><li><a href="/services/">Services</a></li><li aria-current="page">{{ s.title }}</li></ol>
     <span class="page-head-icon">{% icon s.icon %}</span>
-    <div class="page-head-row"><p class="eyebrow">{{ "Service" if s.group == "service" else "Product supply" }}</p><span class="pill pill-dim">{{ "S" if s.group == "service" else "P" }}-{{ (services | byGroup(s.group)).indexOf(s) + 1 | pad }}</span></div>
+    <div class="page-head-row"><p class="eyebrow">{{ "Service" if s.group == "service" else "Product supply" }}</p><span class="pill pill-dim">{{ "S" if s.group == "service" else "P" }}-{{ ((services | byGroup(s.group)).indexOf(s) + 1) | pad }}</span></div>
     <h1>{{ s.title }}</h1>
     <p class="lead">{{ s.short }}</p>
   </div>

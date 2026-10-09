@@ -3,31 +3,31 @@ layout: layouts/base.njk
 description: "Brain Industries (Pty) Ltd, Pretoria — electrical and hazardous area (Ex) specialists. Hazardous area classification, electrical and earthing audits, installations, certificates of compliance, Ex product supply and InspectX digital inspections."
 bodyClass: home
 ---
-<section class="hero theme-dark" aria-labelledby="hero-title">
+<section class="hero theme-light" aria-labelledby="hero-title">
   <div class="container hero-grid">
     <div>
-      <p class="chip"><span class="dot" aria-hidden="true"></span> 25+ years · Electrical &amp; hazardous areas</p>
-      <h1 id="hero-title">Electrical &amp; <span class="grad-text">hazardous area</span> specialists for South African industry.</h1>
-      <p class="lead">For more than 25 years we have helped industry classify, equip, install and inspect electrical systems where the risk is highest — with the technical depth to get it right and the documentation to prove it.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="/services/">Explore services {% icon "arrow-right" %}</a>
+      <p class="chip" data-reveal><span class="dot" aria-hidden="true"></span> 25+ years · Electrical &amp; hazardous areas</p>
+      <h1 id="hero-title" data-reveal>Electrical &amp; <span class="grad-text">hazardous area</span> specialists for South African industry.</h1>
+      <p class="lead" data-reveal>For more than 25 years we have helped industry classify, equip, install and inspect electrical systems where the risk is highest — with the technical depth to get it right and the documentation to prove it.</p>
+      <div class="btn-row" data-reveal>
+        <a class="btn btn-primary" href="#services-title">Explore services {% icon "arrow-right" %}</a>
         <a class="btn" href="/inspectx/">{% icon "qr-code" %} Discover InspectX</a>
       </div>
-      <ul class="readouts" aria-label="Key facts">
-        <li><strong>25+</strong><span>Years’ experience</span></li>
+      <ul class="readouts" aria-label="Key facts" data-reveal>
+        <li><strong><span data-count="25">25</span>+</strong><span>Years’ experience</span></li>
         <li><strong>M.I.E</strong><span>Qualified master installation electrician</span></li>
-        <li><strong>{{ services.length }}</strong><span>Services &amp; product lines</span></li>
+        <li><strong data-count="{{ services.length }}">{{ services.length }}</strong><span>Services &amp; product lines</span></li>
       </ul>
     </div>
-
-    <div class="viewport" data-reveal>
-            <div class="viewport-media">
-        {% image "/assets/images/gallery/distribution-board-orange-portrait.jpg", "Open orange control panel with breakers, contactors and neatly dressed wiring", "(min-width: 62em) 480px, 100vw", "eager" %}
-        
-      </div>
-      <div class="float-card" aria-hidden="true">
-        <div class="fc-row"><span class="fc-qr">{% icon "badge-check" %}</span><span><span class="fc-title">Led by a qualified M.I.E</span><br><span class="fc-sub">25+ years · Pretoria, South Africa</span></span></div>
-      </div>
+    <div class="ex-stage" aria-hidden="true">
+      <svg class="ex-ring r1" viewBox="0 0 200 174"><polygon points="50,2 150,2 198,87 150,172 50,172 2,87"/></svg>
+      <svg class="ex-ring r2" viewBox="0 0 200 174"><polygon points="50,2 150,2 198,87 150,172 50,172 2,87"/></svg>
+      <svg class="ex-ring r3" viewBox="0 0 200 174"><polygon points="50,2 150,2 198,87 150,172 50,172 2,87"/></svg>
+      <div class="ex-core">{% include "partials/ex-mark.njk" %}</div>
+      <span class="ex-tag t1"><b>Gas</b> Zones 0 · 1 · 2</span>
+      <span class="ex-tag t2"><b>Dust</b> Zones 20 · 21 · 22</span>
+      <span class="ex-tag t3"><b>T1–T6</b> Temperature class</span>
+      <span class="ex-tag t4"><b>IIA · IIB · IIC</b> Gas groups</span>
     </div>
   </div>
 </section>
@@ -62,51 +62,21 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-alt section-line" aria-labelledby="services-title">
+<section class="section section-alt" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head split">
       <div>
         <p class="eyebrow"><span class="num">01</span> Capabilities</p>
-        <h2 id="services-title">Services and products for electrical and Ex installations</h2>
+        <h2 id="services-title">Everything an Ex installation needs, from one team</h2>
       </div>
-      <p>We work across the life of an installation — establishing where the hazards are, supplying and installing the right equipment, and verifying that it stays safe and compliant.</p>
+      <p>Select a service to bring it into focus — or let them cycle. Each one opens into a full page with scope and typical applications.</p>
     </div>
-
-    <h3 class="group-label">Services</h3>
-    <ul class="bento" data-reveal>
-      {%- for s in services | byGroup("service") %}
-      <li class="card spot gborder{% if loop.first %} feature{% endif %}" data-spotlight>
-        <div class="card-top"><span class="card-icon">{% icon s.icon %}</span><span class="card-index">S-{{ loop.index | pad }}</span></div>
-        <h3><a href="/services/{{ s.slug }}/">{{ s.title }}</a></h3>
-        <p>{{ s.short }}</p>
-        {%- if loop.first %}{% include "partials/zone-art.njk" %}{% endif %}
-        <span class="link-arrow" aria-hidden="true">Learn more {% icon "arrow-right" %}</span>
-      </li>
-      {%- endfor %}
-      <li class="card spot gborder" data-spotlight>
-        <div class="card-top"><span class="card-icon">{% icon "qr-code" %}</span><span class="card-index">D-01</span></div>
-        <h3><a href="/inspectx/">InspectX digital inspections</a></h3>
-        <p>QR-code-driven inspections with photo verification, defect tracking and management reporting.</p>
-        <span class="link-arrow" aria-hidden="true">Explore InspectX {% icon "arrow-right" %}</span>
-      </li>
-    </ul>
-
-    <h3 class="group-label">Products</h3>
-    <ul class="bento" data-reveal>
-      {%- for s in services | byGroup("product") %}
-      <li class="card spot gborder" data-spotlight>
-        <div class="card-top"><span class="card-icon">{% icon s.icon %}</span><span class="card-index">P-{{ loop.index | pad }}</span></div>
-        <h3><a href="/services/{{ s.slug }}/">{{ s.title }}</a></h3>
-        <p>{{ s.short }}</p>
-        <span class="link-arrow" aria-hidden="true">Learn more {% icon "arrow-right" %}</span>
-      </li>
-      {%- endfor %}
-    </ul>
+    {% include "partials/svc-explorer.njk" %}
   </div>
 </section>
 
 
-<section class="section section-line" aria-labelledby="env-title">
+<section class="section" aria-labelledby="env-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -130,7 +100,7 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section theme-dark" aria-labelledby="exref-title">
+<section class="section section-alt" aria-labelledby="exref-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -143,7 +113,7 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-line" aria-labelledby="std-title">
+<section class="section" aria-labelledby="std-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -170,7 +140,7 @@ bodyClass: home
 </section>
 
 
-<section class="section section-line" aria-labelledby="lifecycle-title">
+<section class="section section-alt" aria-labelledby="lifecycle-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -189,7 +159,7 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section theme-dark section-line" aria-labelledby="ix-title">
+<section class="section section-ix" aria-labelledby="ix-title">
   <img class="brand-watermark" src="/assets/images/brand/brain-mark.png" alt="" width="367" height="649" aria-hidden="true">
   <div class="container">
     <div class="section-head split">
@@ -207,7 +177,7 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-line" aria-labelledby="about-title">
+<section class="section" aria-labelledby="about-title">
   <div class="container split wide-left center">
     <div>
       <p class="eyebrow"><span class="num">06</span> About us</p>
@@ -243,7 +213,7 @@ bodyClass: home
   </div>
 </section>
 
-<section class="section section-alt section-line" aria-labelledby="projects-title">
+<section class="section section-alt" aria-labelledby="projects-title">
   <div class="container">
     <div class="section-head split">
       <div>

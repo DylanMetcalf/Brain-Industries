@@ -1,0 +1,40 @@
+{#- Service explorer: one service in focus at a time, cycling automatically. Links through to each detail page. -#}
+<div class="sx" data-sx>
+  <div class="sx-tabs" role="tablist" aria-label="Services and products">
+    {%- for s in services %}
+    <button class="sx-tab" type="button" role="tab" id="sxt-{{ s.slug }}" aria-controls="sxp-{{ s.slug }}" aria-selected="{{ 'true' if loop.first else 'false' }}" data-sx-tab>
+      <span class="sx-ic">{% icon s.icon %}</span>
+      <span class="sx-name">{{ s.title }}</span>
+      <span class="sx-code">{{ "S" if s.group == "service" else "P" }}-{{ ((services | byGroup(s.group)).indexOf(s) + 1) | pad }}</span>
+      <span class="sx-bar" aria-hidden="true"><i></i></span>
+    </button>
+    {%- endfor %}
+  </div>
+  <div class="sx-stage">
+    {%- for s in services %}
+    <article class="sx-panel{% if loop.first %} is-active{% endif %}" role="tabpanel" id="sxp-{{ s.slug }}" aria-labelledby="sxt-{{ s.slug }}"{% if not loop.first %} data-hide{% endif %}>
+      <div class="sx-copy">
+        <p class="eyebrow">{{ "Service" if s.group == "service" else "Product supply" }}</p>
+        <h3>{{ s.title }}</h3>
+        <p class="sx-lead">{{ s.short }}</p>
+        <ul class="sx-points">
+          {%- for pt in s.points.slice(0, 3) %}<li>{% icon "check" %}<span>{{ pt }}</span></li>{% endfor %}
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/services/{{ s.slug }}/">Explore {{ "service" if s.group == "service" else "product" }} {% icon "arrow-right" %}</a>
+          <a class="btn" href="/contact/?enquiry={{ s.slug }}#enquiry">Enquire</a>
+        </div>
+      </div>
+      <div class="sx-media{% if s.imageFit == 'contain' %} contain{% endif %}">
+        {%- if s.image %}
+          {% image s.image, s.imageAlt, "(min-width: 62em) 520px, 100vw" %}
+        {%- elif s.slug == "hazardous-area-classification" %}
+          <div class="sx-art">{% include "partials/zone-art.njk" %}</div>
+        {%- else %}
+          <div class="sx-art sx-art-icon">{% icon s.icon %}</div>
+        {%- endif %}
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</div>
