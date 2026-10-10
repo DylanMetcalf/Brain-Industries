@@ -74,31 +74,48 @@ The first build takes a minute or two while the images are optimised. Later buil
 
 ## 5. Deploy to GitHub Pages
 
-1. Push the repository to GitHub, with the site on the `main` branch.
-2. Go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.
-3. Every push to `main` builds and deploys automatically (**Actions** tab → "Build and deploy to GitHub Pages"). You can also run it by hand with **Run workflow**.
+1. Merge the working branch into `main`, either by opening and merging a pull request or by pushing to `main`.
+2. In the GitHub repo **DylanMetcalf/Brain-Industries**, go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.
+3. The **Build and deploy to GitHub Pages** workflow runs on every push to `main` (see the **Actions** tab). The first run takes about 2–3 minutes.
+4. When it finishes, the site is live at `https://dylanmetcalf.github.io/Brain-Industries/`. Some links there may break until the custom domain below is connected, because the site expects to be served from a domain root.
 
-## 6. Custom domain (www.brainindustriessa.com)
+## 6. Custom domain (www.brainindustriessa.co.za)
 
-The `src/CNAME` file already contains `www.brainindustriessa.com`.
+The old domain, `brainindustriessa.com`, stays with Wix. The new site uses **brainindustriessa.co.za**. `src/CNAME` and `site.json → url` are already set to `www.brainindustriessa.co.za`.
 
-1. **GitHub:** go to **Settings → Pages → Custom domain**, enter `www.brainindustriessa.com` and save. Once the certificate is issued, tick **Enforce HTTPS**. This can take up to 24 hours after DNS is correct.
-2. **Recommended:** verify the domain under GitHub **Settings (your account or org) → Pages → Verified domains**. This stops anyone else claiming it.
-3. **DNS:** set these records at the domain registrar or DNS host, and remove the old Wix records for the same names:
+**A. Register the domain** (skip if already owned)
+- Register `brainindustriessa.co.za` with any ZACR-accredited registrar (for example Domains.co.za, Afrihost, xneelo or Hetzner SA). Expect about R100 a year.
+- Choose a plan that lets you edit DNS records. You don't need the registrar's hosting.
 
-   | Type | Name | Value |
-   |---|---|---|
-   | CNAME | `www` | `<github-username>.github.io` (the account/org that owns the repo, no repo name) |
-   | A | `@` | `185.199.108.153` |
-   | A | `@` | `185.199.109.153` |
-   | A | `@` | `185.199.110.153` |
-   | A | `@` | `185.199.111.153` |
-   | AAAA (optional) | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+**B. Add the DNS records** (in the registrar's DNS manager)
 
-   With both the apex (`@`) and `www` records pointing at GitHub, GitHub Pages redirects `brainindustriessa.com` to `www.brainindustriessa.com` automatically.
-4. Before you switch: check the current IP values in [GitHub's documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site). Also check whether the domain is registered *through Wix*. If it is, either transfer it to another registrar or edit its DNS in Wix before you cancel the Wix plan.
-5. **Email:** the addresses are `@imagine.co.za`, so moving the website domain does not affect email. If any MX or TXT records exist on `brainindustriessa.com`, keep them.
-6. Cancel Wix only once the new site loads over HTTPS on both addresses.
+| Type | Host / Name | Value |
+|---|---|---|
+| CNAME | `www` | `dylanmetcalf.github.io` |
+| A | `@` (blank / root) | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| AAAA (optional) | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+
+- Delete any default "parking" A or CNAME records for `@` and `www` that the registrar created.
+- If the GitHub repo is moved to a different account or organisation, the CNAME value changes to `<that-account>.github.io`.
+
+**C. Connect it in GitHub**
+1. Go to **Settings → Pages → Custom domain**, enter `www.brainindustriessa.co.za` and click **Save**. GitHub runs a DNS check, which can take from a few minutes to 24 hours.
+2. When the check passes, tick **Enforce HTTPS**. The certificate is issued automatically.
+3. *Recommended:* go to **your GitHub profile → Settings → Pages → Add a domain** and verify `brainindustriessa.co.za` with the TXT record GitHub gives you. This stops anyone else claiming it.
+
+**D. Check**
+- `https://www.brainindustriessa.co.za` loads the new site with a padlock.
+- `https://brainindustriessa.co.za` (without www) redirects to the www address. GitHub does this automatically when the A records are present.
+- Pages, PDFs, the gallery and the contact form all work.
+
+**E. The old .com domain**
+- **Keep it** (recommended, at least for a while): in Wix, set up a redirect or forward from `brainindustriessa.com` to `https://www.brainindustriessa.co.za`, so old links, the company profile and business cards still work. Once that's done, you can drop the Wix website plan and keep only the domain registration. Alternatively, transfer the domain out of Wix to your .co.za registrar and forward it from there.
+- **Or let it lapse**: anything printed with `.com` (the company profile, flyers, email signatures) should then be updated to `.co.za`.
+
+**Email is unaffected.** The company's addresses are `@imagine.co.za`, so no MX records change.
 
 ## 7. Contact form
 
@@ -163,7 +180,7 @@ Replace `brain-industries-privacy-notice.pdf` or `brain-industries-paia-manual.p
 |---|---|
 | Deployment failed | Open **Actions** and read the red step. `Unknown icon` means a misspelt icon name in `services.json`. `Missing alt text` means an image needs `alt`. `check` failing means a link points to a file that doesn't exist. |
 | JSON error on build | A missing comma or quote in a `_data/*.json` file. Paste the file into https://jsonlint.com. |
-| Domain shows a 404 / "Site not found" | Check that **Settings → Pages** shows the custom domain, `CNAME` exists, and DNS has propagated (`dig www.brainindustriessa.com`). |
+| Domain shows a 404 / "Site not found" | Check that **Settings → Pages** shows the custom domain, `CNAME` exists, and DNS has propagated (`dig www.brainindustriessa.co.za`). |
 | HTTPS not available | Wait for DNS and certificate issue (up to 24 h). Remove and re-add the custom domain to re-trigger it. |
 | Form emails not arriving | Check that `form.accessKey` is set, check spam/junk, and check that the Web3Forms address was confirmed. |
 | Old content still showing | Hard-refresh the browser (Ctrl/Cmd + Shift + R). CSS and JS are versioned on every build. |

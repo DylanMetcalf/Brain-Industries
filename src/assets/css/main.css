@@ -1064,3 +1064,7 @@ body.nav-open .site-header { backdrop-filter: none; background: rgb(var(--bg-rgb
 /* Light sections inside the dark body */
 .theme-light.section-alt { background: var(--bg-2); }
 .theme-light .env, .theme-light .feature-grid li, .theme-light .pipeline li { box-shadow: 0 1px 2px rgb(17 18 20 / 0.04); }
+/* InspectX page: rugged handheld device mock-up */
+.ix-device { width: min(100%, 300px); height: auto; margin-inline: auto; filter: drop-shadow(0 40px 50px rgb(0 0 0 / 0.55)) drop-shadow(0 0 60px rgb(240 50 90 / 0.18)); }
+@media (prefers-reduced-motion: no-preference) { .ix-device { animation: float 7s ease-in-out infinite; } }
+@media (max-width: 61.99em) { .ix-device { width: min(70%, 240px); } }

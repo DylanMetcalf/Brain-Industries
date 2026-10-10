@@ -20,7 +20,10 @@ permalink: /inspectx/
     </div>
     <div>
       {#- Replace this file to update the InspectX logo everywhere: src/assets/images/brand/inspectx-logo-white.png -#}
-      <img class="ix-hero-logo" src="/assets/images/brand/inspectx-logo-white.png" alt="InspectX logo" width="1069" height="625">
+      <picture>
+        <source srcset="/assets/images/brand/inspectx-device.webp" type="image/webp">
+        <img class="ix-device" src="/assets/images/brand/inspectx-device.png" alt="InspectX app login screen on a rugged handheld QR-code scanning device" width="592" height="1000" fetchpriority="high">
+      </picture>
     </div>
   </div>
 </section>

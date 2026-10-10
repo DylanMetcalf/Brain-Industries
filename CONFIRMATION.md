@@ -21,7 +21,7 @@ These items need a person to confirm them before or soon after launch. Every val
 15. **InspectX.** All content comes from the supplied presentation and one-pager. Two points to confirm:
     - SAP integration is shown as "In progress". Confirm its current status.
     - The InspectX logo currently on the site was taken from the old site. Replace it if a new version exists.
-16. **Domain registrar.** Confirm where `brainindustriessa.com` is registered (possibly through Wix) before you cancel Wix (see HANDOVER §6).
+16. **Domains.** The new site will run on `www.brainindustriessa.co.za`. Decide whether to keep `brainindustriessa.com` (at Wix) and redirect it to the new domain (recommended), or let it lapse. The company profile PDF still shows `www.brainindustriessa.com` and should be updated (see HANDOVER §6).
 17. **New homepage information sections.** Please review these sections, which give general industry context:
     - **"Where explosive atmospheres occur":** typical environments only, not a client list.
     - **"Legislation and standards":** OHS Act & Electrical Installation Regulations, SANS 10142-1, SANS 10108, SANS 60079-0/-14/-17, each mapped to a service. Confirm the mapping reflects how you work.
