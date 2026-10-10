@@ -1,9 +1,10 @@
 ---
 layout: layouts/base.njk
 title: Contact Us & Request a Quote
-description: "Contact Brain Industries in Waterkloof, Pretoria for electrical and hazardous area services, Ex products and InspectX. Phone, email or send an enquiry online."
+description: "Contact Brain Industries for nationwide electrical and hazardous area services, Ex products and InspectX. Phone, email or send an enquiry online."
 ---
-<section class="page-head">
+<section class="page-head theme-light bg-grid">
+  <span class="glow glow-b" aria-hidden="true"></span>
   <div class="container">
     <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>
     <p class="eyebrow">Contact</p>
@@ -32,8 +33,9 @@ description: "Contact Brain Industries in Waterkloof, Pretoria for electrical an
         <li>
           <h3>Office</h3>
           <address>
-            <span class="contact-line">{% icon "map-pin" %}<span>{{ site.address.street }}<br>{{ site.address.suburb }}, {{ site.address.city }}<br>{{ site.address.country }}, {{ site.address.postalCode }}</span></span>
+            <span class="contact-line">{% icon "map-pin" %}<span>{{ site.address.street }}<br>{{ site.address.city }}, {{ site.address.region }}<br>{{ site.address.country }}, {{ site.address.postalCode }}</span></span>
           </address>
+          <p class="muted mt-1 mb-0"><small>We work on sites nationwide, across all provinces of South Africa.</small></p>
           <a class="link-arrow mt-1" href="{{ site.mapsUrl }}" target="_blank" rel="noopener">Get directions {% icon "arrow-up-right" %}</a>
         </li>
       </ul>
@@ -43,8 +45,8 @@ description: "Contact Brain Industries in Waterkloof, Pretoria for electrical an
     <div id="enquiry">
       <h2>Send an enquiry</h2>
       <p class="muted">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required. We use your details only to respond to your enquiry.</p>
-      <form class="form" action="{{ site.form.endpoint }}" method="post" novalidate
-            data-contact-form data-access-key="{{ site.form.accessKey }}" data-fallback-email="{{ site.primaryEmail }}">
+      <form class="form" action="{{ site.form.endpoint }}{{ site.form.to }}" method="post" novalidate
+            data-contact-form data-cc="{{ (site.form.cc.concat(site.form.smsGateway)) | join(',') }}" data-fallback-email="{{ site.form.to }}">
         <div class="form-row">
           <div class="field">
             <label for="f-name">Name *</label>
@@ -103,7 +105,7 @@ description: "Contact Brain Industries in Waterkloof, Pretoria for electrical an
         </div>
         <div class="form-status" data-form-status role="status" tabindex="-1" hidden></div>
         <div class="form-foot">
-          <p>Submissions are delivered by email to Brain Industries via a third-party form service. See our <a href="/legal/">legal information</a>.</p>
+          <p>Your enquiry goes directly to our team by email (via the FormSubmit service). See our <a href="/legal/">legal information</a>.</p>
           <button class="btn btn-primary" type="submit">Send enquiry {% icon "arrow-right" %}</button>
         </div>
       </form>

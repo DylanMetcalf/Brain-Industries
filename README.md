@@ -1,6 +1,6 @@
 # Brain Industries — website
 
-Official website of Brain Industries (Pty) Ltd: https://www.brainindustriessa.com
+Official website of Brain Industries (Pty) Ltd: https://www.brainindustriessa.co.za
 
 A static site built with [Eleventy](https://www.11ty.dev/) and deployed to GitHub Pages.
 

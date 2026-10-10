@@ -10,6 +10,7 @@
     const setOpen = (open) => {
       toggle.setAttribute("aria-expanded", String(open));
       nav.classList.toggle("is-open", open);
+      document.body.classList.toggle("nav-open", open);
     };
     toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
     document.addEventListener("keydown", (e) => {
@@ -34,6 +35,98 @@
   } else {
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Data-driven widths (bars) — set via CSSOM to respect the CSP ---------- */
+  document.querySelectorAll("[data-w]").forEach((el) => { el.style.width = `${el.dataset.w}%`; });
+
+  /* ---------- Card spotlight ---------- */
+  document.querySelectorAll("[data-spotlight]").forEach((el) => {
+    el.addEventListener("pointermove", (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      el.style.setProperty("--my", `${e.clientY - r.top}px`);
+    });
+  });
+
+  /* ---------- Mobile action bar: appears after the first screen ---------- */
+  const bar = document.querySelector("[data-mobile-bar]");
+  if (bar) {
+    const onScroll = () => bar.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.6);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- Ex quick reference ---------- */
+  document.querySelectorAll("[data-exref]").forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(root.querySelectorAll("[data-zone-panel]"));
+    panels.forEach((p) => { if (p.hasAttribute("data-hide")) p.hidden = true; });
+    const select = (tab, focus) => {
+      tabs.forEach((t) => { const on = t === tab; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; });
+      panels.forEach((p) => { p.hidden = p.id !== tab.getAttribute("aria-controls"); });
+      if (focus) tab.focus();
+    };
+    tabs.forEach((t) => {
+      t.tabIndex = t.getAttribute("aria-selected") === "true" ? 0 : -1;
+      t.addEventListener("click", () => select(t));
+      t.addEventListener("keydown", (e) => {
+        if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+        const vis = tabs.filter((x) => !x.hidden);
+        const i = vis.indexOf(t) + (e.key === "ArrowRight" ? 1 : -1);
+        select(vis[(i + vis.length) % vis.length], true);
+      });
+    });
+    root.querySelectorAll("[data-medium-btn]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const m = btn.dataset.mediumBtn;
+        root.querySelectorAll("[data-medium-btn]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+        tabs.forEach((t) => { t.hidden = t.dataset.medium !== m; });
+        root.querySelectorAll("[data-group-medium]").forEach((g) => { g.hidden = g.dataset.groupMedium !== m; });
+        select(tabs.find((t) => t.dataset.medium === m));
+      });
+    });
+  });
+
+  /* ---------- InspectX device walkthrough ---------- */
+  document.querySelectorAll("[data-ix-demo]").forEach((root) => {
+    const steps = Array.from(root.querySelectorAll("[data-ix-step]"));
+    const screens = Array.from(root.querySelectorAll(".screen"));
+    const DUR = 5000;
+    let idx = 0, timer = null, auto = !reduceMotion, inView = false;
+    root.style.setProperty("--ix-dur", `${DUR}ms`);
+    const show = (i, focus) => {
+      idx = (i + steps.length) % steps.length;
+      steps.forEach((s, j) => {
+        const on = j === idx;
+        s.setAttribute("aria-selected", String(on));
+        s.tabIndex = on ? 0 : -1;
+        const bar = s.querySelector(".ix-progress i");
+        bar.classList.remove("run");
+        if (on && auto && inView) { void bar.offsetWidth; bar.classList.add("run"); }
+      });
+      screens.forEach((sc, j) => sc.classList.toggle("is-active", j === idx));
+      if (focus) steps[idx].focus();
+      schedule();
+    };
+    const schedule = () => {
+      clearTimeout(timer);
+      if (auto && inView) timer = setTimeout(() => show(idx + 1), DUR);
+    };
+    const stopAuto = () => { auto = false; clearTimeout(timer); root.querySelectorAll(".ix-progress i").forEach((b) => b.classList.remove("run")); };
+    steps.forEach((s, j) => {
+      s.addEventListener("click", () => { stopAuto(); show(j); });
+      s.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); stopAuto(); show(idx + 1, true); }
+        if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); stopAuto(); show(idx - 1, true); }
+      });
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([en]) => { inView = en.isIntersecting; show(idx); }, { threshold: 0.35 }).observe(root);
+    }
+    show(0);
+  });
 
   /* ---------- Gallery: filter + lightbox ---------- */
   const gallery = document.querySelector("[data-gallery]");
@@ -84,7 +177,7 @@
         if (e.key === "ArrowLeft") show(index - 1);
         if (e.key === "ArrowRight") show(index + 1);
       });
-      dialog.addEventListener("close", () => { img.removeAttribute("src"); });
+      dialog.addEventListener("close", () => { img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; });
     }
   }
 
@@ -93,7 +186,7 @@
   if (form) {
     const statusBox = form.querySelector("[data-form-status]");
     const submitBtn = form.querySelector("[type=submit]");
-    const accessKey = form.dataset.accessKey;
+    const cc = form.dataset.cc;
     const fallbackEmail = form.dataset.fallbackEmail;
 
     // Pre-select enquiry type from ?enquiry=slug
@@ -145,8 +238,8 @@
 
       const subject = `Website enquiry: ${data.enquiry || "General"}${data.company ? " — " + data.company : ""}`;
 
-      // No form key configured yet: fall back to the visitor's email client.
-      if (!accessKey) {
+      // No endpoint configured: fall back to the visitor's email client.
+      if (!form.action || !/formsubmit\.co/.test(form.action)) {
         const body = [
           `Name: ${data.name}`, `Company: ${data.company || "-"}`, `Email: ${data.email}`,
           `Phone: ${data.phone || "-"}`, `Enquiry type: ${data.enquiry}`, "", data.message,
@@ -162,21 +255,22 @@
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({
-            access_key: accessKey,
-            subject,
-            from_name: "Brain Industries website",
-            replyto: data.email,
-            name: data.name,
-            company: data.company,
-            email: data.email,
-            phone: data.phone,
-            enquiry_type: data.enquiry,
-            message: data.message,
-            botcheck: "",
+            _subject: subject,
+            _cc: cc || undefined,
+            _replyto: data.email,
+            _template: "table",
+            _captcha: "false",
+            _honey: "",
+            Name: data.name,
+            Company: data.company || "-",
+            Email: data.email,
+            Phone: data.phone || "-",
+            "Enquiry type": data.enquiry,
+            Message: data.message,
           }),
         });
         const json = await res.json().catch(() => ({}));
-        if (res.ok && json.success) {
+        if (res.ok && String(json.success) === "true") {
           form.reset();
           fields.forEach((f) => f.removeAttribute("aria-invalid"));
           setStatus("success", "Thank you — your enquiry has been sent. We will respond as soon as possible.");
@@ -190,4 +284,79 @@
       }
     });
   }
+})();
+
+/* ---------- v4: count-up, staggered reveal, service explorer ---------- */
+(function () {
+  "use strict";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Stagger children of grids marked data-reveal
+  document.querySelectorAll("[data-reveal]").forEach((el) => {
+    Array.from(el.children).forEach((c, i) => { if (!c.hasAttribute("data-reveal")) c.style.setProperty("--d", `${i * 70}ms`); });
+  });
+
+  // Count-up numbers
+  const counters = document.querySelectorAll("[data-count]");
+  if (!reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      const el = en.target, end = +el.dataset.count, t0 = performance.now(), dur = 1400;
+      const tick = (t) => { const k = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); };
+      el.textContent = "0"; requestAnimationFrame(tick);
+    }), { threshold: 0.6 });
+    counters.forEach((c) => io.observe(c));
+  }
+
+  // Service explorer
+  document.querySelectorAll("[data-sx]").forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll("[data-sx-tab]"));
+    const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
+    const DUR = 7000;
+    let idx = 0, timer = null, auto = !reduce, inView = false, paused = false;
+    root.style.setProperty("--sx-dur", `${DUR}ms`);
+    panels.forEach((p) => { p.hidden = p.hasAttribute("data-hide"); });
+    const schedule = () => { clearTimeout(timer); if (auto && inView && !paused) timer = setTimeout(() => show(idx + 1), DUR); };
+    const show = (i, focus, user) => {
+      idx = (i + tabs.length) % tabs.length;
+      tabs.forEach((t, j) => {
+        const on = j === idx;
+        t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1;
+        const bar = panels[j].querySelector(".sx-bar i"); bar.classList.remove("run");
+        if (on && auto && inView && !paused) { void bar.offsetWidth; bar.classList.add("run"); }
+      });
+      panels.forEach((p, j) => { p.hidden = j !== idx; p.classList.toggle("is-active", j === idx); });
+      if (focus) tabs[idx].focus();
+      if (user && window.matchMedia("(max-width: 63.99em)").matches) tabs[idx].scrollIntoView({ block: "nearest", inline: "center", behavior: reduce ? "auto" : "smooth" });
+      schedule();
+    };
+    const stop = () => { auto = false; clearTimeout(timer); root.querySelectorAll(".sx-bar i").forEach((b) => b.classList.remove("run")); };
+    tabs.forEach((t, j) => {
+      t.addEventListener("click", () => { stop(); show(j, false, true); });
+      t.addEventListener("keydown", (e) => {
+        const k = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+        if (k) { e.preventDefault(); stop(); show(idx + k, true, true); }
+      });
+    });
+    root.addEventListener("mouseenter", () => { paused = true; show(idx); });
+    root.addEventListener("mouseleave", () => { paused = false; show(idx); });
+    if ("IntersectionObserver" in window) new IntersectionObserver(([en]) => { inView = en.isIntersecting; show(idx); }, { threshold: 0.3 }).observe(root);
+    show(0);
+  });
+})();
+
+/* ---------- Back to top ---------- */
+(function () {
+  const btn = document.querySelector("[data-to-top]");
+  if (!btn) return;
+  const onScroll = () => btn.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    document.getElementById("main").focus({ preventScroll: true });
+  });
 })();

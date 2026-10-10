@@ -1,0 +1,22 @@
+{#- Bespoke service symbols (signage style, 48×48, stroke = currentColor). Usage: {{ sym(slug, "class") }} -#}
+{% macro sym(slug, cls="") -%}
+<svg class="sym {{ cls }}" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{%- if slug == "hazardous-area-classification" -%}
+<circle cx="24" cy="25" r="3" fill="currentColor"/><circle cx="24" cy="25" r="9.5"/><circle cx="24" cy="25" r="17" stroke-dasharray="3.2 3.6"/>
+{%- elif slug == "electrical-earthing-audits" -%}
+<path d="M20 8v15M8 23h24M12 30h16M16 37h8"/><path d="M31 12l3.5 3.5L41 9"/>
+{%- elif slug == "hazardous-area-installations" -%}
+<rect x="9" y="7" width="24" height="24" rx="2.5"/><path d="M14 14h14M14 20h9"/><path d="M17 31v4h8v-4"/><path d="M21 35v3a4 4 0 0 0 4 4h15"/>
+{%- elif slug == "certificate-of-compliance" -%}
+<path d="M30 40H11a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v12"/><path d="M14 14h14M14 20h9M14 26h6"/><circle cx="33" cy="33" r="8"/><path d="M34.5 28l-3.5 5.5h4.5L32 39"/>
+{%- elif slug == "explosion-protected-equipment" -%}
+<path d="M24 5l15 5.5v11c0 9.5-6.5 17-15 21-8.5-4-15-11.5-15-21v-11z"/><path d="M22 17h-6v12h6M16 23h5"/><path d="M26 19l7 10M33 19l-7 10"/>
+{%- elif slug == "auto-bindicators" -%}
+<path d="M10 7h22v24l-6 9h-10l-6-9z"/><path d="M11 25h20" stroke-dasharray="2.5 3"/><path d="M42 18H27"/><path d="M27 13v10"/>
+{%- elif slug == "safety-roto-reflectors" -%}
+<circle cx="24" cy="25" r="3"/><path d="M24 22v-9M26.6 26.5l7.8 4.5M21.4 26.5l-7.8 4.5"/><circle cx="24" cy="9" r="4.5"/><circle cx="38" cy="33" r="4.5"/><circle cx="10" cy="33" r="4.5"/>
+{%- elif slug == "led-lighting" -%}
+<path d="M17 7h14M24 7v7"/><path d="M10 25c0-6 6-11 14-11s14 5 14 11z"/><path d="M24 31v8M15 30l-4 6M33 30l4 6"/>
+{%- endif -%}
+</svg>
+{%- endmacro %}

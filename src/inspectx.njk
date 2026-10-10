@@ -3,23 +3,28 @@ layout: layouts/base.njk
 title: InspectX — QR-code-driven digital inspections
 description: "InspectX by Brain Industries is a web-based, QR-code-driven inspection platform for hazardous and industrial environments: guided inspections, photo verification, defect tracking and management reporting."
 permalink: /inspectx/
+bodyClass: page-inspectx
 ---
 {#- InspectX content is sourced from the InspectX presentation and one-pager supplied by Brain Industries. -#}
-<section class="page-head dark">
+<section class="page-head theme-dark bg-dots">
+  <span class="glow glow-a" aria-hidden="true"></span>
   <div class="container ix-hero-grid">
     <div>
       <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">InspectX</li></ol>
-      <p class="ix-tag">{% icon "qr-code" %} A Brain Industries product</p>
+      <p class="chip">{% icon "qr-code" %} A Brain Industries product</p>
       <h1>InspectX: the QR-code-driven digital inspection system</h1>
       <p class="lead">InspectX is a web-based inspection platform for hazardous and industrial environments. It replaces paper-based inspections with a structured, digital process — scan the equipment, follow the guided checks, capture photo evidence and give management a clear view of compliance.</p>
       <div class="btn-row">
-        <a class="btn btn-light" href="/contact/?enquiry=inspectx#enquiry">Enquire about InspectX {% icon "arrow-right" %}</a>
+        <a class="btn btn-primary" href="/contact/?enquiry=inspectx#enquiry">Enquire about InspectX {% icon "arrow-right" %}</a>
         <a class="btn btn-ghost-light" href="{{ site.documents.inspectxPresentation.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Full presentation <span class="visually-hidden">(PDF)</span></a>
       </div>
     </div>
     <div>
       {#- Replace this file to update the InspectX logo everywhere: src/assets/images/brand/inspectx-logo-white.png -#}
-      <img class="ix-hero-logo" src="/assets/images/brand/inspectx-logo-white.png" alt="InspectX logo" width="1069" height="625">
+      <picture>
+        <source srcset="/assets/images/brand/inspectx-device.webp" type="image/webp">
+        <img class="ix-device" src="/assets/images/brand/inspectx-device.png" alt="InspectX app login screen on a rugged handheld QR-code scanning device" width="592" height="1000" fetchpriority="high">
+      </picture>
     </div>
   </div>
 </section>
@@ -55,7 +60,7 @@ permalink: /inspectx/
   </div>
 </section>
 
-<section class="section section-paper section-line" aria-labelledby="features-title">
+<section class="section section-alt section-line" aria-labelledby="features-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -87,19 +92,11 @@ permalink: /inspectx/
       </div>
       <p>The InspectX app runs on a designated QR-code scanning device. Each inspection follows the same structured path — so results are consistent, whoever carries them out.</p>
     </div>
-    <ol class="steps" data-reveal>
-      <li><h3>Launch &amp; log in</h3><ul><li>Open InspectX on the designated scanning device.</li><li>Log in to your business profile.</li><li>User competency is verified: competent users conduct inspections; non-competent users have read-only access.</li></ul></li>
-      <li><h3>Select site &amp; type</h3><ul><li>Choose the site where the inspection will take place.</li><li>Pick the inspection type — visual, close or detailed; weekly or monthly.</li><li>View past inspections for reference.</li></ul></li>
-      <li><h3>Navigate to the zone</h3><ul><li>Select the area or zone within the site that requires inspection.</li><li>Review historical inspection data for that zone.</li></ul></li>
-      <li><h3>Start the inspection</h3><ul><li>Open a new inspection form.</li><li>Walk up to the equipment and scan its unique QR code.</li><li>Take a mandatory on-site photo for verification.</li></ul></li>
-      <li><h3>Follow the guided process</h3><ul><li>Answer the inspection questions in the app, with guided prompts.</li><li>Mark issues and add notes where necessary.</li><li>A “No” answer requires a compulsory comment before proceeding.</li></ul></li>
-      <li><h3>Review &amp; submit</h3><ul><li>The inspection results in one of three outcomes: Pass, Repaired or Defect.</li></ul></li>
-      <li><h3>Sync &amp; store securely</h3><ul><li>Data is saved locally and uploaded to the cloud when an internet connection is available.</li><li>Managers review compliance, generate reports and track history in the portal.</li></ul></li>
-    </ol>
+    {% include "partials/ix-device.njk" %}
   </div>
 </section>
 
-<section class="section section-paper section-line" aria-labelledby="outcomes-title">
+<section class="section section-alt section-line" aria-labelledby="outcomes-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -116,7 +113,7 @@ permalink: /inspectx/
   </div>
 </section>
 
-<section class="section dark qr-texture" aria-labelledby="portal-title">
+<section class="section theme-dark section-line bg-grid" aria-labelledby="portal-title">
   <div class="container">
     <div class="section-head split">
       <div>
@@ -125,7 +122,8 @@ permalink: /inspectx/
       </div>
       <p class="muted">Secure login gives managers quick access to inspection status, equipment and reporting across all managed sites.</p>
     </div>
-    <ul class="portal-list" data-reveal>
+    <div data-reveal>{% include "partials/ix-dash.njk" %}</div>
+    <ul class="portal-list mt-2">
       <li><h3>{% icon "gauge" %} Manager dashboard</h3><p>A dynamic overview of all managed sites, highlighting inspection statuses, compliance rates and flagged equipment — for informed decisions and proactive issue resolution.</p></li>
       <li><h3>{% icon "clipboard-list" %} Equipment list</h3><p>Key equipment data consolidated in a single platform, with customised reporting that can be printed or saved digitally.</p></li>
       <li><h3>{% icon "file-text" %} Inspection forms</h3><p>A clear, organised view of inspection data with real-time updates, intuitive navigation and reporting tools.</p></li>

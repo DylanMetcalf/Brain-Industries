@@ -3,7 +3,8 @@ layout: layouts/base.njk
 title: Services & Products
 description: "Electrical and hazardous area services and products from Brain Industries: area classification, electrical and earthing audits, Ex installations, certificates of compliance, Ex equipment, bindicators, roto reflectors and LED lighting."
 ---
-<section class="page-head">
+<section class="page-head theme-light bg-grid">
+  <span class="glow glow-b" aria-hidden="true"></span>
   <div class="container">
     <ol class="breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Services</li></ol>
     <p class="eyebrow">Services &amp; products</p>
@@ -13,13 +14,14 @@ description: "Electrical and hazardous area services and products from Brain Ind
 </section>
 
 {%- for grp in [["service", "Services"], ["product", "Products"]] %}
-<section class="section{% if not loop.first %} section-paper section-line{% endif %}" aria-labelledby="grp-{{ grp[0] }}">
+<section class="section{% if not loop.first %} section-alt section-line{% endif %}" aria-labelledby="grp-{{ grp[0] }}">
   <div class="container">
     <h2 class="group-label" id="grp-{{ grp[0] }}">{{ grp[1] }}</h2>
     <ul class="service-rows">
       {%- for s in services | byGroup(grp[0]) %}
       <li class="service-row">
         <span class="card-icon">{% icon s.icon %}</span>
+        <span class="idx">{{ "S" if grp[0] == "service" else "P" }}-{{ loop.index | pad }}</span>
         <h3><a href="/services/{{ s.slug }}/">{{ s.title }}</a></h3>
         <p>{{ s.short }}</p>
         <span class="link-arrow" aria-hidden="true">Details {% icon "arrow-right" %}</span>

@@ -1,0 +1,213 @@
+<!doctype html><html lang="en-ZA"><head><meta charset="utf-8"><title>Brain Industries — Website Preview Walkthrough</title>
+<style>
+@font-face{font-family:Inter;src:url(inter-var-latin.woff2);font-weight:100 900}
+@font-face{font-family:Archivo;src:url(archivo-var-latin.woff2);font-weight:100 900;font-stretch:62% 125%}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font:10pt/1.55 Inter,sans-serif;color:#2b2d33;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:16mm 16mm 14mm;position:relative;page-break-after:always;overflow:hidden;background:#fbfaf8}
+.page:last-child{page-break-after:auto}
+h1,h2,h3{font-family:Archivo,sans-serif;font-stretch:88%;font-weight:650;color:#15161a;letter-spacing:-.01em;margin:0 0 .4em}
+h2{font-size:20pt;line-height:1.1}
+h3{font-size:12.5pt;margin-top:0}
+.eyebrow{font:600 7.5pt Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8a0b40;margin:0 0 6px}
+.lead{font-size:11pt;color:#3b3d43}
+.muted{color:#5c5f67}
+.shot{width:100%;max-height:104mm;object-fit:cover;object-position:top center;border-radius:6px;border:1px solid #e3e0db;display:block;box-shadow:0 6px 18px -10px rgb(0 0 0/.35)}
+.item{margin-bottom:9mm}
+.item p{margin:2.5mm 0 0}
+.num{display:inline-grid;place-items:center;width:20px;height:18px;margin-right:7px;font:700 8pt Archivo;color:#fff;background:linear-gradient(135deg,#ff4d73,#d81f4f 40%,#8a0b40);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);vertical-align:2px}
+.foot{position:absolute;left:16mm;right:16mm;bottom:8mm;display:flex;justify-content:space-between;font:600 7pt Archivo;letter-spacing:.12em;text-transform:uppercase;color:#8f9299;border-top:1px solid #e3e0db;padding-top:3mm}
+.cover{background:#181b22;color:#c3c6ce;padding:0}
+.cover .top{height:62%;background:#fff;padding:22mm 18mm;position:relative}
+.cover .top img{width:118mm}
+.cover .hex{position:absolute;right:18mm;bottom:-22mm;width:56mm}
+.cover .bottom{padding:30mm 18mm 0;background:radial-gradient(80% 90% at 100% 0,rgb(138 11 64/.45),transparent 60%)}
+.cover h1{color:#fff;font-size:30pt;line-height:1.05;margin:0 0 4mm}
+.cover .sub{color:#c3c6ce;font-size:11pt;max-width:120mm}
+.cover .meta{margin-top:10mm;font:600 8pt Archivo;letter-spacing:.14em;text-transform:uppercase;color:#ff8aa2}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.card{background:#fff;border:1px solid #e3e0db;border-radius:6px;padding:4.5mm 5mm;position:relative}
+.card:before{content:"";position:absolute;left:0;top:4mm;bottom:4mm;width:2.5px;background:linear-gradient(#ff4d73,#8a0b40);border-radius:0 2px 2px 0}
+.card h3{font-size:11pt;margin-bottom:1.5mm}
+.card p{margin:0;font-size:9pt;color:#5c5f67}
+.map{display:flex;flex-wrap:wrap;gap:2mm;margin-top:3mm}
+.map span{font:600 8pt Archivo;letter-spacing:.06em;padding:1.5mm 3mm;border-radius:20px;background:#fff;border:1px solid #d9d5cf}
+.map span.hl{background:#6e0334;color:#fff;border-color:#6e0334}
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin:4mm 0 6mm}
+.phones img{width:100%;border-radius:14px;border:6px solid #15161a;box-shadow:0 10px 24px -12px rgb(0 0 0/.5)}
+.phones p{font-size:8.5pt;margin:2.5mm 0 0;color:#5c5f67}
+ul.tick{list-style:none;padding:0;margin:0}
+ul.tick li{padding:1.6mm 0 1.6mm 6mm;position:relative;border-bottom:1px solid #ebe8e3;font-size:9.2pt}
+ul.tick li:before{content:"";position:absolute;left:0;top:3.1mm;width:7px;height:6px;background:#d81f4f;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+ol.steps{padding-left:5mm;margin:0}
+ol.steps li{margin-bottom:2.2mm;font-size:9.5pt}
+.dark{background:#181b22;color:#c3c6ce}
+.dark h2,.dark h3{color:#fff}
+.dark .eyebrow{color:#ff8aa2}
+.dark .foot{border-color:#363b47;color:#9a9ea8}
+.dark .shot{border-color:#363b47}
+.s3 .shot{max-height:62mm}
+.s2 .shot{max-height:92mm}
+.split .shot{max-height:70mm}
+.try{display:inline-block;margin-top:2mm;padding:1mm 3mm;border-radius:20px;font:600 7.5pt Archivo;letter-spacing:.06em;color:#8a0b40;background:#f8e9ee}
+.dark .try{color:#ffb3c3;background:rgb(240 50 90/.16)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:6mm;align-items:start}
+</style></head><body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="top">
+    <img src="brain-industries-logo.png" alt="Brain Industries (Pty) Ltd">
+    <svg class="hex" viewBox="0 0 200 174"><polygon points="50,6 150,6 194,87 150,168 50,168 6,87" fill="#f5c518" stroke="#111214" stroke-width="12" stroke-linejoin="round"/><text x="100" y="118" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="98" letter-spacing="-4" fill="#111214">Ex</text></svg>
+  </div>
+  <div class="bottom">
+    <p class="eyebrow" style="color:#ff8aa2">Website preview</p>
+    <h1>The new brainindustriessa.com</h1>
+    <p class="sub">A guided walkthrough of the new website — what visitors see, how it works on every device, and what is needed to go live.</p>
+    <p class="meta">Prepared for the owners of Brain Industries (Pty) Ltd · October 2026</p>
+  </div>
+</section>
+
+<!-- AT A GLANCE -->
+<section class="page">
+  <p class="eyebrow">At a glance</p>
+  <h2>A website that presents Brain Industries as the specialists you are</h2>
+  <p class="lead">The new site replaces the Wix website with a faster, independent and far more informative experience — built to earn the trust of engineers, plant managers and procurement teams in hazardous-area industries.</p>
+  <div class="grid2" style="margin-top:6mm">
+    <div class="card"><h3>Positioned as experts</h3><p>25+ years’ experience, a qualified M.I.E and the full Ex lifecycle — classification, supply, installation, audits and certification — are front and centre.</p></div>
+    <div class="card"><h3>Interactive, not just words</h3><p>A honeycomb service selector with custom symbols, an Ex quick-reference tool and a step-by-step InspectX walkthrough invite visitors to explore.</p></div>
+    <div class="card"><h3>Industry-specific information</h3><p>Where explosive atmospheres occur, zones and protection levels, and the SANS standards behind each service — demonstrating knowledge, not just claiming it.</p></div>
+    <div class="card"><h3>InspectX given its own stage</h3><p>A dedicated page and homepage feature for your QR-code-driven inspection system, with the app and manager portal illustrated.</p></div>
+    <div class="card"><h3>Built for phones</h3><p>Full-screen menu, swipeable service selector and a call / request-a-quote bar that follows visitors down the page.</p></div>
+    <div class="card"><h3>Owned, fast and secure</h3><p>No Wix fees or lock-in. Hosted on GitHub Pages, loads quickly, with POPIA consent, Privacy Notice and PAIA Manual linked throughout.</p></div>
+  </div>
+  <h3 style="margin-top:8mm">Site map</h3>
+  <div class="map"><span class="hl">Home</span><span>Services overview</span><span>8 service &amp; product pages</span><span class="hl">InspectX</span><span>About</span><span>Projects gallery</span><span class="hl">Contact &amp; quote form</span><span>Legal (Privacy · PAIA)</span></div>
+  <p class="muted" style="margin-top:6mm;font-size:9pt">Design language: a bright, clean opening section, then alternating crisp white and soft graphite sections in the Brain Industries wine-and-rose colours. Ex yellow marks products and the Ex symbol; real project photography is used throughout.</p>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>02</span></div>
+</section>
+
+<!-- HOME 1 -->
+<section class="page">
+  <p class="eyebrow">Homepage tour</p>
+  <h2>First impression</h2>
+  <div class="item"><img class="shot" src="01-hero.jpg"><p><span class="num">1</span><strong>Opening section.</strong> A bold statement of who you are — <em>Electrical &amp; hazardous area specialists for South African industry</em> — beside an animated Ex symbol with slowly turning hexagon rings and floating references to gas and dust zones, temperature classes and gas groups. The 25+ years figure counts up as the page loads.<br><span class="try">TRY IT · Watch the hexagon rings turn and the zone labels float</span></p></div>
+  <div class="item"><img class="shot" src="02-why.jpg"><p><span class="num">2</span><strong>Why Brain Industries — “Specialists, not generalists”.</strong> Four reasons to choose you: 25+ years of experience, a qualified M.I.E, the full Ex lifecycle from one team, and your own inspection platform.</p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>03</span></div>
+</section>
+
+<!-- HOME 2 -->
+<section class="page dark">
+  <p class="eyebrow">Homepage tour</p>
+  <h2>The service honeycomb</h2>
+  <div class="item"><img class="shot" src="03-explorer.jpg"><p><span class="num">3</span><strong>Every service, one at a time.</strong> Services and products sit in a honeycomb of hexagons — echoing the Ex mark — each with its own custom-drawn symbol (wine for services, Ex yellow for products). Click a hexagon to bring that service into focus; left alone, they cycle automatically with a progress bar.<br><span class="try">TRY IT · Click any hexagon, or use the arrow keys</span></p></div>
+  <div class="item"><img class="shot" src="03b-explorer-product.jpg"><p>Each focus panel shows a short description, three key points, a photo or illustration, and buttons to open the full service page or send an enquiry pre-filled with that service.</p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>04</span></div>
+</section>
+
+<!-- HOME 3 -->
+<section class="page">
+  <p class="eyebrow">Homepage tour</p>
+  <h2>Industry knowledge, shown not told</h2>
+  <div class="item"><img class="shot" src="04-industries.jpg"><p><span class="num">4</span><strong>Where explosive atmospheres occur.</strong> Six typical environments — petrochemical, fuel storage, mining, grain and food, chemical and coatings, wastewater and biogas — each tagged gas or dust. It tells visitors immediately that you understand their world.</p></div>
+  <div class="item"><img class="shot" src="05-exref.jpg"><p><span class="num">5</span><strong>Ex quick reference (interactive).</strong> Switch between gas and dust, select a zone, and see its definition, likelihood and permitted equipment protection levels — alongside temperature classes T1–T6 and gas/dust groups. A practical tool engineers will return to.<br><span class="try">TRY IT · Choose “Dust”, then Zone 21</span></p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>05</span></div>
+</section>
+
+<!-- HOME 4 -->
+<section class="page">
+  <p class="eyebrow">Homepage tour</p>
+  <h2>Standards and the way you work</h2>
+  <div class="item"><img class="shot" src="06-standards.jpg"><p><span class="num">6</span><strong>The legislation and standards behind the work.</strong> The OHS Act and Electrical Installation Regulations, SANS 10142-1, SANS 10108 and the SANS 60079 series — each linked to the matching Brain Industries service.</p></div>
+  <div class="item"><img class="shot" src="07-lifecycle.jpg"><p><span class="num">7</span><strong>One partner across the hazardous area lifecycle.</strong> Classify → Specify &amp; supply → Install → Inspect &amp; certify → Digitise, each step linking to the relevant service.</p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>06</span></div>
+</section>
+
+<!-- HOME 5 -->
+<section class="page dark s2">
+  <p class="eyebrow">Homepage tour</p>
+  <h2>InspectX and company story</h2>
+  <div class="item"><img class="shot" src="08-inspectx.jpg"><p><span class="num">8</span><strong>InspectX walkthrough.</strong> Five steps — log in, select site, scan the QR code, follow the guided checks, outcome and sync — each updating the phone screen alongside. It plays automatically and can be clicked through.<br><span class="try">TRY IT · Click “Scan the QR code”</span></p></div>
+  <div class="item"><img class="shot" src="09-about.jpg"><p><span class="num">9</span><strong>About.</strong> Your story and a “company at a glance” panel with registration, location, experience and qualification.</p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>07</span></div>
+</section>
+
+<!-- HOME 6 -->
+<section class="page dark s3">
+  <p class="eyebrow">Homepage tour</p>
+  <h2>Work, call to action and footer</h2>
+  <div class="item"><img class="shot" src="10-projects.jpg"><p><span class="num">10</span><strong>Recent work and products</strong> — real photographs of your panels, installations and products, linking to the full gallery.</p></div>
+  <div class="item"><img class="shot" src="11-cta.jpg"><p><span class="num">11</span><strong>Call to action</strong> on every page: request a quote, download the company profile, or call directly.</p></div>
+  <div class="item"><img class="shot" src="12-footer.jpg"><p><span class="num">12</span><strong>Footer</strong> with every service, contacts, address, registration number, Privacy Notice and PAIA Manual.</p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>08</span></div>
+</section>
+
+<!-- INNER PAGES -->
+<section class="page">
+  <p class="eyebrow">Inside the site</p>
+  <h2>Service pages and InspectX</h2>
+  <div class="item"><img class="shot" src="13-service.jpg"><p><span class="num">13</span><strong>Eight dedicated service &amp; product pages.</strong> Each has a full explanation, what’s included, typical applications, an enquiry panel that stays in view, related services and previous/next navigation. Every page is individually findable on Google.</p></div>
+  <div class="item"><img class="shot" src="14-ix-page.jpg"><p><span class="num">14</span><strong>InspectX page.</strong> Why it exists (SANS 60079-17 periodic inspection), inspection disciplines, nine capabilities, the app walkthrough, the Pass / Repaired / Defect outcomes and downloadable brochures.</p></div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>09</span></div>
+</section>
+
+<section class="page">
+  <p class="eyebrow">Inside the site</p>
+  <h2>Portal, gallery and enquiries</h2>
+  <div class="item"><img class="shot" src="15-portal.jpg"><p><span class="num">15</span><strong>InspectX manager portal</strong> illustrated — site status, outcomes and recent inspections (clearly labelled as illustrative data).</p></div>
+  <div class="split">
+    <div class="item"><img class="shot" src="16-lightbox.jpg"><p><span class="num">16</span><strong>Projects gallery</strong> with filters and a full-screen viewer.<br><span class="try">TRY IT · Filter “Products”, open a photo, use ← →</span></p></div>
+    <div class="item"><img class="shot" src="17-contact.jpg"><p><span class="num">17</span><strong>Contact &amp; quote form</strong> — all contacts, directions, and a validated form with POPIA consent. Service pages pre-select the enquiry type.</p></div>
+  </div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>10</span></div>
+</section>
+
+<!-- MOBILE -->
+<section class="page">
+  <p class="eyebrow">On mobile</p>
+  <h2>Designed for the phone in a site manager’s pocket</h2>
+  <div class="phones">
+    <div><img src="18-m-hero.jpg"><p><strong>Clean opening</strong> on a white background, with the key facts in view.</p></div>
+    <div><img src="19-m-menu.jpg"><p><strong>Full-screen menu</strong> with large, easy-to-tap links.</p></div>
+    <div><img src="20-m-explorer.jpg"><p><strong>Service honeycomb</strong> and a <strong>Call / Request a quote</strong> bar that follows the visitor.</p></div>
+  </div>
+  <p class="muted" style="font-size:9pt">Every page has been checked at phone, tablet and desktop sizes. Animations switch off automatically for visitors who prefer reduced motion.</p>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>11</span></div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="page">
+  <p class="eyebrow">Next steps</p>
+  <h2>What we need from you before going live</h2>
+  <div class="split">
+    <div>
+      <h3>Please confirm</h3>
+      <ul class="tick">
+        <li><strong>Office address</strong> — old site: 378 Main Street; profile &amp; PAIA: 402 Julius Jeppe Street (currently used).</li>
+        <li><strong>Registration number</strong> 2016/099333/07 (from the Privacy Notice).</li>
+        <li><strong>M.I.E</strong> — Master Installation Electrician; any name/registration to show.</li>
+        <li><strong>Products</strong> — current TEP Ex supply, the HALO LED range, and Roto Reflector colours.</li>
+        <li><strong>Certificates of Compliance</strong> — registration of the person issuing CoCs.</li>
+        <li><strong>Dust classification</strong> — that dust areas (Zones 20–22) are classified as well as gas.</li>
+        <li><strong>Gallery captions</strong> and photo ownership; rights to the LED lighting image.</li>
+        <li><strong>LinkedIn link</strong> — personal profile or a company page.</li>
+        <li><strong>PAIA Manual</strong> — appears to contain another company’s content (solar/PV records); needs review by your Information Officer.</li>
+        <li><strong>InspectX</strong> — SAP integration status; illustrative app/portal screens are acceptable.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Going live</h3>
+      <ol class="steps">
+        <li><strong>Enquiry email.</strong> Choose the address that should receive website enquiries; we create a free Web3Forms key for it.</li>
+        <li><strong>Approve the preview.</strong> Final content changes are made in one place and the site rebuilds automatically.</li>
+        <li><strong>Publish.</strong> The site is published on GitHub Pages (free hosting).</li>
+        <li><strong>Point the domain.</strong> Update the DNS for brainindustriessa.com (and www) — about 15 minutes of work; up to 24 hours to take effect.</li>
+        <li><strong>Check &amp; switch off Wix.</strong> Once the new site is live on HTTPS, cancel the Wix plan. If the domain is registered through Wix, it is transferred first.</li>
+      </ol>
+      <div class="card" style="margin-top:6mm"><h3>Email is unaffected</h3><p>Your email addresses (@imagine.co.za) are separate from the website and will not change.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Brain Industries · Website preview</span><span>12</span></div>
+</section>
+</body></html>

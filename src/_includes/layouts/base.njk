@@ -9,9 +9,9 @@
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc }}">
   <link rel="canonical" href="{{ canonical }}">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com mailto:; base-uri 'self'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#6E0334">
+  <meta name="theme-color" content="#6e0334">
   {%- if noindex %}<meta name="robots" content="noindex">{% endif %}
 
   <meta property="og:type" content="website">
@@ -32,7 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/barlow-semi-condensed-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/main.css?v={{ build.version }}">
   <script src="/assets/js/main.js?v={{ build.version }}" defer></script>
 
@@ -64,9 +64,16 @@
 <body class="{{ bodyClass }}">
   <a class="skip-link" href="#main">Skip to content</a>
   {% include "partials/header.njk" %}
-  <main id="main" tabindex="-1">
+  <main id="main" class="theme-dark" tabindex="-1">
     {{ content | safe }}
   </main>
   {% include "partials/footer.njk" %}
+  <a class="to-top" href="#main" data-to-top aria-label="Back to top">{% icon "arrow-up" %}</a>
+  {%- if page.url != "/contact/" %}
+  <div class="mobile-bar" data-mobile-bar>
+    <a class="btn mb-call" href="tel:{{ site.primaryTel }}" aria-label="Call {{ site.primaryPhone }}"><span class="mb-ic">{% icon "phone" %}</span>Call</a>
+    <a class="btn btn-primary" href="/contact/">Request a quote {% icon "arrow-right" %}</a>
+  </div>
+  {%- endif %}
 </body>
 </html>

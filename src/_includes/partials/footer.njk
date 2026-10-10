@@ -8,8 +8,8 @@
           <span class="brand-sub">(Pty) Ltd · South Africa</span>
         </span>
       </a>
-      <p class="footer-about">Electrical and hazardous area (Ex) services and product supply — classification, audits, installations, certification and digital inspections.</p>
-      <a class="btn btn-ghost-light btn-sm" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Download company profile</a>
+      <p class="footer-about">Electrical and hazardous area (Ex) services and product supply — classification, audits, installations, certification and digital inspections — serving sites across South Africa.</p>
+      <a class="btn btn-sm" href="{{ site.documents.companyProfile.url }}" target="_blank" rel="noopener">{% icon "file-down" %} Download company profile</a>
     </div>
 
     <nav class="footer-col" aria-label="Services">
@@ -40,7 +40,7 @@
           <li><span class="muted">{{ c.name }}</span><br><a href="tel:{{ c.tel }}">{{ c.phone }}</a></li>
           {%- endfor %}
           <li><a href="mailto:{{ site.primaryEmail }}">{{ site.primaryEmail }}</a></li>
-          <li class="muted">{{ site.address.street }}, {{ site.address.suburb }},<br>{{ site.address.city }}, {{ site.address.postalCode }}</li>
+          <li class="muted">{{ site.address.street }},<br>{{ site.address.city }}, {{ site.address.region }}, {{ site.address.postalCode }}</li>
         </ul>
       </address>
     </div>
@@ -54,4 +54,5 @@
       <li><a href="{{ site.documents.paia.url }}" target="_blank" rel="noopener">PAIA Manual</a></li>
     </ul>
   </div>
+  <p class="footer-word" aria-hidden="true">BRAIN INDUSTRIES</p>
 </footer>
