@@ -177,7 +177,7 @@
         if (e.key === "ArrowLeft") show(index - 1);
         if (e.key === "ArrowRight") show(index + 1);
       });
-      dialog.addEventListener("close", () => { img.removeAttribute("src"); });
+      dialog.addEventListener("close", () => { img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; });
     }
   }
 
@@ -186,7 +186,7 @@
   if (form) {
     const statusBox = form.querySelector("[data-form-status]");
     const submitBtn = form.querySelector("[type=submit]");
-    const accessKey = form.dataset.accessKey;
+    const cc = form.dataset.cc;
     const fallbackEmail = form.dataset.fallbackEmail;
 
     // Pre-select enquiry type from ?enquiry=slug
@@ -238,8 +238,8 @@
 
       const subject = `Website enquiry: ${data.enquiry || "General"}${data.company ? " — " + data.company : ""}`;
 
-      // No form key configured yet: fall back to the visitor's email client.
-      if (!accessKey) {
+      // No endpoint configured: fall back to the visitor's email client.
+      if (!form.action || !/formsubmit\.co/.test(form.action)) {
         const body = [
           `Name: ${data.name}`, `Company: ${data.company || "-"}`, `Email: ${data.email}`,
           `Phone: ${data.phone || "-"}`, `Enquiry type: ${data.enquiry}`, "", data.message,
@@ -255,21 +255,22 @@
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({
-            access_key: accessKey,
-            subject,
-            from_name: "Brain Industries website",
-            replyto: data.email,
-            name: data.name,
-            company: data.company,
-            email: data.email,
-            phone: data.phone,
-            enquiry_type: data.enquiry,
-            message: data.message,
-            botcheck: "",
+            _subject: subject,
+            _cc: cc || undefined,
+            _replyto: data.email,
+            _template: "table",
+            _captcha: "false",
+            _honey: "",
+            Name: data.name,
+            Company: data.company || "-",
+            Email: data.email,
+            Phone: data.phone || "-",
+            "Enquiry type": data.enquiry,
+            Message: data.message,
           }),
         });
         const json = await res.json().catch(() => ({}));
-        if (res.ok && json.success) {
+        if (res.ok && String(json.success) === "true") {
           form.reset();
           fields.forEach((f) => f.removeAttribute("aria-invalid"));
           setStatus("success", "Thank you — your enquiry has been sent. We will respond as soon as possible.");

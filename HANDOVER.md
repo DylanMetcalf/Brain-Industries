@@ -32,7 +32,7 @@ The build also creates `sitemap.xml`, `robots.txt`, Open Graph and structured da
   - an illustrative manager dashboard (`ix-dash.njk`)
   - a mobile call/quote bar
 - **Hosting:** GitHub Pages, deployed by GitHub Actions.
-- **Contact form:** [Web3Forms](https://web3forms.com), a static form-to-email service.
+- **Contact form:** [FormSubmit](https://formsubmit.co), a static form-to-email service. It emails Jonathan and Sharon, and can send SMS through an email-to-SMS service.
 
 ## 3. Project structure
 
@@ -117,14 +117,26 @@ The old domain, `brainindustriessa.com`, stays with Wix. The new site uses **bra
 
 **Email is unaffected.** The company's addresses are `@imagine.co.za`, so no MX records change.
 
-## 7. Contact form
+## 7. Contact form (email to Jonathan & Sharon, optional SMS)
 
-- The form posts to Web3Forms, which emails each submission to the address registered for the access key.
-- **Setup (once):** go to https://web3forms.com, enter the email address that should receive enquiries and confirm it. Copy the access key into `src/_data/site.json` → `form.accessKey`, then commit and push.
-- The access key is a *public* key, designed by Web3Forms to sit in client-side code. It only lets visitors send mail to the registered address, so it's not a secret.
-- **Until a key is added,** pressing "Send enquiry" opens the visitor's email app with the message filled in, addressed to `primaryEmail`. Nothing is lost in the meantime.
-- **Spam protection:** a hidden honeypot field. If spam becomes a problem, Web3Forms also supports hCaptcha.
-- **Validation:** required fields, email format, phone format and privacy consent, with accessible inline errors and success and error messages.
+**How it works.** The form posts to [FormSubmit](https://formsubmit.co), a free form-to-email service that needs no account and no secret key. Each enquiry is emailed to `form.to` (`jonathanm@imagine.co.za`) and copied to every address in `form.cc` (`sharonm@imagine.co.za`). Both are set in `src/_data/site.json`. Replies go straight to the visitor's email address.
+
+**Activation (once).**
+1. After the site is live, submit a test enquiry.
+2. FormSubmit emails an **"Activate Form"** link to jonathanm@imagine.co.za. Click it.
+3. From then on, enquiries are delivered immediately.
+4. *Optional:* FormSubmit then shows a random alias, e.g. `https://formsubmit.co/ajax/abc123…`. Put the alias in `form.to` instead of the email address, so the address isn't visible in the page source.
+
+**SMS notifications to 083 679 1069 and 082 448 8433.** A static website can't send SMS itself without exposing a paid API key, so SMS works through an **Email-to-SMS** service: each enquiry is also emailed to a special address that converts it into an SMS.
+1. Open an account with a South African SMS provider that offers *Email to SMS*, for example SMSPortal or BulkSMS. Buy a small credit bundle; each message costs a few cents.
+2. In the provider's dashboard, enable Email-to-SMS. Authorise sending from FormSubmit's address, or from "any sender" if the provider allows it.
+3. The provider gives you a gateway address for each phone number, usually in a format like `27836791069@<provider-domain>`. Add those addresses to `form.smsGateway` in `site.json`, for example:
+   `"smsGateway": ["27836791069@<provider-domain>", "27824488433@<provider-domain>"]`
+4. Commit the change. Every enquiry now also triggers an SMS containing the enquiry subject.
+
+**Spam protection.** A hidden honeypot field, validation, and FormSubmit's own filtering.
+
+**Fallback.** If the form service is unreachable, the visitor sees an error message with the direct email address.
 
 ## 8. Where content lives
 
@@ -182,5 +194,5 @@ Replace `brain-industries-privacy-notice.pdf` or `brain-industries-paia-manual.p
 | JSON error on build | A missing comma or quote in a `_data/*.json` file. Paste the file into https://jsonlint.com. |
 | Domain shows a 404 / "Site not found" | Check that **Settings → Pages** shows the custom domain, `CNAME` exists, and DNS has propagated (`dig www.brainindustriessa.co.za`). |
 | HTTPS not available | Wait for DNS and certificate issue (up to 24 h). Remove and re-add the custom domain to re-trigger it. |
-| Form emails not arriving | Check that `form.accessKey` is set, check spam/junk, and check that the Web3Forms address was confirmed. |
+| Form emails not arriving | Check the FormSubmit activation email was clicked (also check spam/junk), and that `form.to` and `form.cc` in `site.json` are correct. |
 | Old content still showing | Hard-refresh the browser (Ctrl/Cmd + Shift + R). CSS and JS are versioned on every build. |

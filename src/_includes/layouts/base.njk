@@ -9,7 +9,7 @@
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc }}">
   <link rel="canonical" href="{{ canonical }}">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com mailto:; base-uri 'self'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#6e0334">
   {%- if noindex %}<meta name="robots" content="noindex">{% endif %}
@@ -71,7 +71,7 @@
   <a class="to-top" href="#main" data-to-top aria-label="Back to top">{% icon "arrow-up" %}</a>
   {%- if page.url != "/contact/" %}
   <div class="mobile-bar" data-mobile-bar>
-    <a class="btn" href="tel:{{ site.primaryTel }}">{% icon "phone" %} Call</a>
+    <a class="btn mb-call" href="tel:{{ site.primaryTel }}" aria-label="Call {{ site.primaryPhone }}"><span class="mb-ic">{% icon "phone" %}</span>Call</a>
     <a class="btn btn-primary" href="/contact/">Request a quote {% icon "arrow-right" %}</a>
   </div>
   {%- endif %}

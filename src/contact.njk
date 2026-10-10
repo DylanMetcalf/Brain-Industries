@@ -44,8 +44,8 @@ description: "Contact Brain Industries in Waterkloof, Pretoria for electrical an
     <div id="enquiry">
       <h2>Send an enquiry</h2>
       <p class="muted">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required. We use your details only to respond to your enquiry.</p>
-      <form class="form" action="{{ site.form.endpoint }}" method="post" novalidate
-            data-contact-form data-access-key="{{ site.form.accessKey }}" data-fallback-email="{{ site.primaryEmail }}">
+      <form class="form" action="{{ site.form.endpoint }}{{ site.form.to }}" method="post" novalidate
+            data-contact-form data-cc="{{ (site.form.cc.concat(site.form.smsGateway)) | join(',') }}" data-fallback-email="{{ site.form.to }}">
         <div class="form-row">
           <div class="field">
             <label for="f-name">Name *</label>
@@ -104,7 +104,7 @@ description: "Contact Brain Industries in Waterkloof, Pretoria for electrical an
         </div>
         <div class="form-status" data-form-status role="status" tabindex="-1" hidden></div>
         <div class="form-foot">
-          <p>Submissions are delivered by email to Brain Industries via a third-party form service. See our <a href="/legal/">legal information</a>.</p>
+          <p>Your enquiry goes directly to our team by email (via the FormSubmit service). See our <a href="/legal/">legal information</a>.</p>
           <button class="btn btn-primary" type="submit">Send enquiry {% icon "arrow-right" %}</button>
         </div>
       </form>

@@ -12,12 +12,12 @@ These items need a person to confirm them before or soon after launch. Every val
 8. **Service scope.** The descriptions explain each service in general terms (standards context, typical scope, typical applications). Please review each one in `services.json`, especially:
    - **Certificate of Compliance:** this implies a registered person issues CoCs. Confirm the registration is current.
    - **Hazardous area classification:** dust zones 20/21/22 are included. Confirm you classify dust areas as well as gas.
-9. **Form recipient.** Create the Web3Forms key with the address that should receive enquiries (see HANDOVER §7). Until then, the form falls back to emailing `jonathanm@imagine.co.za`.
+9. **Form recipients.** Enquiries go to jonathanm@imagine.co.za, with sharonm@imagine.co.za copied. Click the one-time FormSubmit activation email after the first test. For SMS to 083 679 1069 and 082 448 8433, choose an Email-to-SMS provider (see HANDOVER §7).
 10. **LinkedIn link.** The old site links to `linkedin.com/in/brainindustriessa`, which is a *personal-profile* URL format. Confirm it is correct, or provide a company page. Set it to `""` to hide it.
 11. **Gallery captions.** Captions were derived from the old gallery's file names (e.g. "Local control station", "Magnet panels", "Earth mat — MV switchgear"). Confirm the captions and that all photos are your own work or products. Social-media graphics and stock images were left out on purpose.
 12. **Stock-style images.** The LED lighting page uses the underground tunnel image from the old site. Confirm you have the rights to it, or replace it.
 13. **PAIA Manual — appears outdated or inconsistent.** Section "Digital products and inspection systems" lists records about *solar maps, satellite-derived data, albedo studies, SCADA, PV module testing*. This looks copied from another company's template, and InspectX isn't mentioned. Also, the physical address omits the street number. Have your Information Officer review it. The PDF was published unchanged.
-14. **Privacy Notice.** Published unchanged. Confirm it covers website enquiries submitted through a third-party form service (Web3Forms). The `/legal/` page adds a short factual note about this.
+14. **Privacy Notice.** Published unchanged. Confirm it covers website enquiries submitted through a third-party form service (FormSubmit) and optional SMS notifications. The `/legal/` page adds a short factual note about this.
 15. **InspectX.** All content comes from the supplied presentation and one-pager. Two points to confirm:
     - SAP integration is shown as "In progress". Confirm its current status.
     - The InspectX logo currently on the site was taken from the old site. Replace it if a new version exists.
