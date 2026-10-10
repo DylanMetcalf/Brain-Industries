@@ -344,3 +344,18 @@
     show(0);
   });
 })();
+
+/* ---------- Back to top ---------- */
+(function () {
+  const btn = document.querySelector("[data-to-top]");
+  if (!btn) return;
+  const onScroll = () => btn.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    document.getElementById("main").focus({ preventScroll: true });
+  });
+})();

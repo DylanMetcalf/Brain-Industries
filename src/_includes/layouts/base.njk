@@ -68,6 +68,7 @@
     {{ content | safe }}
   </main>
   {% include "partials/footer.njk" %}
+  <a class="to-top" href="#main" data-to-top aria-label="Back to top">{% icon "arrow-up" %}</a>
   {%- if page.url != "/contact/" %}
   <div class="mobile-bar" data-mobile-bar>
     <a class="btn" href="tel:{{ site.primaryTel }}">{% icon "phone" %} Call</a>

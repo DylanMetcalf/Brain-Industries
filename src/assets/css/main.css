@@ -1068,3 +1068,54 @@ body.nav-open .site-header { backdrop-filter: none; background: rgb(var(--bg-rgb
 .ix-device { width: min(100%, 300px); height: auto; margin-inline: auto; filter: drop-shadow(0 40px 50px rgb(0 0 0 / 0.55)) drop-shadow(0 0 60px rgb(240 50 90 / 0.18)); }
 @media (prefers-reduced-motion: no-preference) { .ix-device { animation: float 7s ease-in-out infinite; } }
 @media (max-width: 61.99em) { .ix-device { width: min(70%, 240px); } }
+
+/* ==========================================================================
+   v6 — taller header, back-to-top, InspectX brand scope
+   ========================================================================== */
+:root { --header-h: 84px; }
+.brand-mark { height: 50px; }
+.brand-name { font-size: 1.25rem; }
+.brand-sub { font-size: 0.6875rem; }
+.nav-link { padding: 0.55rem 1.05rem; font-size: 0.9375rem; }
+.site-header { box-shadow: 0 1px 0 var(--line), 0 8px 24px -18px rgb(17 18 20 / 0.35); }
+@media (max-width: 62em) { :root { --header-h: 72px; } .brand-mark { height: 42px; } .brand-name { font-size: 1.125rem; } }
+
+.to-top {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 45; display: grid; place-items: center; width: 48px; height: 48px;
+  color: #fff; background: var(--grad); border-radius: 50%; text-decoration: none;
+  box-shadow: 0 12px 28px -10px rgb(110 3 52 / 0.7); opacity: 0; transform: translateY(16px); pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.to-top .icon { width: 22px; height: 22px; }
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: #fff; transform: translateY(-2px); }
+@media (max-width: 47.99em) { .to-top { right: 1rem; bottom: 5.5rem; width: 44px; height: 44px; } }
+body.nav-open .to-top { display: none; }
+
+/* InspectX brand (amber) — InspectX page body and the homepage InspectX section */
+.page-inspectx main, .section-ix {
+  --ix-amber: #f7a100; --ix-amber-2: #ffc23d;
+  --grad: linear-gradient(135deg, #ffd25e 0%, #f7a100 50%, #d98200 100%);
+  --grad-text: linear-gradient(100deg, #ffd25e 0%, #f7a100 60%, #e08a00 100%);
+  --rose-300: #ffc23d; --rose-400: #f7a100; --rose-500: #e08a00;
+  --accent-text: #ffc23d;
+}
+.page-inspectx main .theme-light, .page-inspectx main .page-head.theme-light { --accent-text: #9a5c00; --icon-on-tint: #9a5c00; }
+.page-inspectx main .btn-primary, .section-ix .btn-primary { color: #15161a; border-color: rgb(255 210 94 / 0.5); box-shadow: 0 1px 0 rgb(255 255 255 / 0.35) inset, 0 10px 30px -10px rgb(247 161 0 / 0.6); }
+.page-inspectx main .btn-primary:hover, .section-ix .btn-primary:hover { color: #15161a; box-shadow: 0 1px 0 rgb(255 255 255 / 0.4) inset, 0 14px 38px -10px rgb(247 161 0 / 0.8); }
+.page-inspectx main .card-icon, .section-ix .card-icon { background: linear-gradient(180deg, rgb(247 161 0 / 0.22), rgb(247 161 0 / 0.08)); box-shadow: inset 0 0 0 1px rgb(255 194 61 / 0.35), 0 8px 20px -8px rgb(247 161 0 / 0.5); }
+.page-inspectx main .ix-step[aria-selected="true"], .section-ix .ix-step[aria-selected="true"] { border-color: rgb(255 194 61 / 0.55); background: linear-gradient(90deg, rgb(247 161 0 / 0.14), transparent 70%); }
+.page-inspectx main .ix-step[aria-selected="true"] .n, .section-ix .ix-step[aria-selected="true"] .n { color: #15161a; box-shadow: 0 6px 18px -6px rgb(247 161 0 / 0.7); }
+.page-inspectx main .s-btn, .section-ix .s-btn { color: #15161a; }
+.page-inspectx main .s-field.sel, .section-ix .s-field.sel { border-color: rgb(255 194 61 / 0.6); background: rgb(247 161 0 / 0.1); }
+.page-inspectx main .qr-frame::before, .section-ix .qr-frame::before { border-color: #f7a100; }
+.page-inspectx main .device-wrap::before, .section-ix .device-wrap::before { background: radial-gradient(circle, rgb(247 161 0 / 0.3), transparent 65%); }
+.page-inspectx main .quote-block { background: radial-gradient(100% 120% at 0% 0%, rgb(247 161 0 / 0.16), transparent 60%), var(--surface); }
+.page-inspectx main .chip .icon { color: #f7a100; }
+.section-ix { background: radial-gradient(60% 80% at 100% 0%, rgb(247 161 0 / 0.16), transparent 60%), var(--bg) !important; }
+.page-inspectx main .page-head.theme-dark { background: radial-gradient(60% 90% at 85% 40%, rgb(247 161 0 / 0.16), transparent 60%), var(--bg); }
+.page-inspectx main .page-head .glow-a { background: radial-gradient(circle, rgb(247 161 0 / 0.35), transparent 65%); }
+
+/* InspectX device mock-up: smaller */
+.ix-device { width: min(100%, 230px); filter: drop-shadow(0 34px 44px rgb(0 0 0 / 0.55)) drop-shadow(0 0 50px rgb(247 161 0 / 0.2)); }
+@media (max-width: 61.99em) { .ix-device { width: min(60%, 200px); } }
