@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Contact Us & Request a Quote
-description: "Contact Brain Industries in Waterkloof, Pretoria for electrical and hazardous area services, Ex products and InspectX. Phone, email or send an enquiry online."
+description: "Contact Brain Industries for nationwide electrical and hazardous area services, Ex products and InspectX. Phone, email or send an enquiry online."
 ---
 <section class="page-head theme-light bg-grid">
   <span class="glow glow-b" aria-hidden="true"></span>
@@ -33,8 +33,9 @@ description: "Contact Brain Industries in Waterkloof, Pretoria for electrical an
         <li>
           <h3>Office</h3>
           <address>
-            <span class="contact-line">{% icon "map-pin" %}<span>{{ site.address.street }}<br>{{ site.address.suburb }}, {{ site.address.city }}<br>{{ site.address.country }}, {{ site.address.postalCode }}</span></span>
+            <span class="contact-line">{% icon "map-pin" %}<span>{{ site.address.street }}<br>{{ site.address.city }}, {{ site.address.region }}<br>{{ site.address.country }}, {{ site.address.postalCode }}</span></span>
           </address>
+          <p class="muted mt-1 mb-0"><small>We work on sites nationwide, across all provinces of South Africa.</small></p>
           <a class="link-arrow mt-1" href="{{ site.mapsUrl }}" target="_blank" rel="noopener">Get directions {% icon "arrow-up-right" %}</a>
         </li>
       </ul>

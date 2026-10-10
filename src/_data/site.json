@@ -5,18 +5,17 @@
   "registrationNumber": "2016/099333/07",
   "url": "https://www.brainindustriessa.co.za",
   "tagline": "Quality electrical services & products",
-  "description": "Brain Industries (Pty) Ltd is a Pretoria-based electrical company specialising in hazardous area (Ex) services, electrical and earthing audits, installations, certificates of compliance and explosion-protected product supply.",
+  "description": "Brain Industries (Pty) Ltd is a South African electrical company specialising in hazardous area (Ex) services, electrical and earthing audits, installations, certificates of compliance and explosion-protected product supply — serving clients nationwide.",
   "locale": "en_ZA",
   "address": {
-    "street": "402 Julius Jeppe Street",
-    "suburb": "Waterkloof",
-    "city": "Pretoria",
-    "region": "Gauteng",
-    "postalCode": "0181",
+    "street": "Terram Farm, 58 Tonteldoos Road",
+    "city": "Dullstroom",
+    "region": "Mpumalanga",
+    "postalCode": "1111",
     "country": "South Africa",
     "countryCode": "ZA"
   },
-  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=402+Julius+Jeppe+Street%2C+Waterkloof%2C+Pretoria%2C+0181",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Terram+Farm%2C+58+Tonteldoos+Road%2C+Dullstroom%2C+Mpumalanga%2C+1111",
   "contacts": [
     {
       "name": "Jonathan Metcalf",
@@ -78,5 +77,6 @@
     ],
     "smsGateway": [],
     "subjectPrefix": "Website enquiry"
-  }
+  },
+  "serviceArea": "Nationwide — sites across South Africa"
 }

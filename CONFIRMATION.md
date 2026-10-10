@@ -2,7 +2,7 @@
 
 These items need a person to confirm them before or soon after launch. Every value lives in `src/_data/site.json` or `src/_data/services.json` unless stated otherwise.
 
-1. **Office address (conflict).** The old website says *378 Main Street, Waterkloof*. The company profile and PAIA Manual (June 2026) say *402 Julius Jeppe Street, Waterkloof, Pretoria, 0181*. The new site uses **402 Julius Jeppe Street**. Please confirm.
+1. **Office address — confirmed (10 Oct 2026):** Terram Farm, 58 Tonteldoos Road, Dullstroom, Mpumalanga, 1111. Service area is nationwide. ⚠ The **PAIA Manual** and **company profile PDF** still show the old Pretoria (Julius Jeppe Street) address. Those PDFs need updating by Brain Industries, since they are legal and marketing documents.
 2. **Registration number 2016/099333/07.** Taken from the Privacy Notice and shown in the footer and on the About page. Please confirm it is correct.
 3. **"M.I.E".** Written out as *Master Installation Electrician*. Please confirm that expansion, and whether a name or registration should be shown.
 4. **Experience claims.** "More than 25 years of experience" (updated by you, 9 Oct 2026) and "experience across the globe … clients who are leaders in the industry" come from the company profile and old site. Confirm they are still current.

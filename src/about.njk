@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: About Us
-description: "About Brain Industries (Pty) Ltd: a Pretoria-based electrical company specialising in electrical and hazardous area (Ex) services and product supply, with more than 25 years of experience."
+description: "About Brain Industries (Pty) Ltd: a South African electrical company specialising in electrical and hazardous area (Ex) services and product supply, with more than 25 years of experience."
 ---
 <section class="page-head theme-light bg-grid">
   <span class="glow glow-b" aria-hidden="true"></span>
@@ -30,7 +30,8 @@ description: "About Brain Industries (Pty) Ltd: a Pretoria-based electrical comp
         <dl class="spec">
           <dt>Registered name</dt><dd>{{ site.legalName }}</dd>
           {%- if site.registrationNumber %}<dt>Registration no.</dt><dd>{{ site.registrationNumber }}</dd>{% endif %}
-          <dt>Address</dt><dd>{{ site.address.street }}, {{ site.address.suburb }}, {{ site.address.city }}, {{ site.address.postalCode }}</dd>
+          <dt>Address</dt><dd>{{ site.address.street }}, {{ site.address.city }}, {{ site.address.region }}, {{ site.address.postalCode }}</dd>
+          <dt>Service area</dt><dd>{{ site.serviceArea }}</dd>
           <dt>Experience</dt><dd>More than 25 years</dd>
           <dt>Qualification</dt><dd>M.I.E (Master Installation Electrician)</dd>
         </dl>

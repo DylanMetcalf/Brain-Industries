@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-description: "Brain Industries (Pty) Ltd, Pretoria — electrical and hazardous area (Ex) specialists. Hazardous area classification, electrical and earthing audits, installations, certificates of compliance, Ex product supply and InspectX digital inspections."
+description: "Brain Industries (Pty) Ltd — South African electrical and hazardous area (Ex) specialists. Hazardous area classification, electrical and earthing audits, installations, certificates of compliance, Ex product supply and InspectX digital inspections."
 bodyClass: home
 ---
 <section class="hero theme-light" aria-labelledby="hero-title">
@@ -201,7 +201,8 @@ bodyClass: home
       <div class="panel-body">
         <dl class="spec">
           <dt>Company</dt><dd>{{ site.legalName }}</dd>
-          <dt>Based in</dt><dd>{{ site.address.suburb }}, {{ site.address.city }}</dd>
+          <dt>Based in</dt><dd>{{ site.address.city }}, {{ site.address.region }}</dd>
+          <dt>Service area</dt><dd>{{ site.serviceArea }}</dd>
           <dt>Focus</dt><dd>Electrical &amp; hazardous area (Ex) services and products</dd>
           <dt>Experience</dt><dd>25+ years</dd>
           <dt>Qualification</dt><dd>M.I.E (Master Installation Electrician)</dd>
