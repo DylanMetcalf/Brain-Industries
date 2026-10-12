@@ -360,3 +360,22 @@
     document.getElementById("main").focus({ preventScroll: true });
   });
 })();
+
+/* ---------- Header: hide on scroll down, show on scroll up ---------- */
+(function () {
+  const header = document.querySelector("[data-header]");
+  if (!header) return;
+  let lastY = window.scrollY, ticking = false;
+  const update = () => {
+    const y = window.scrollY, dy = y - lastY;
+    const navOpen = document.body.classList.contains("nav-open");
+    const focusInside = header.contains(document.activeElement);
+    if (navOpen || focusInside || y < header.offsetHeight) header.classList.remove("is-hidden");
+    else if (dy > 6) header.classList.add("is-hidden");
+    else if (dy < -6) header.classList.remove("is-hidden");
+    if (Math.abs(dy) > 6) lastY = y;
+    ticking = false;
+  };
+  window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  header.addEventListener("focusin", () => header.classList.remove("is-hidden"));
+})();

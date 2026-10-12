@@ -1191,3 +1191,31 @@ h2 { line-height: 1.1; }
 }
 main > section, .cta-band { overflow-x: clip; }
 .sx-panel .btn { padding-inline: 1.1rem; } @media (min-width: 64em) { .sx-panel .btn-row { flex-wrap: nowrap; } }
+
+/* ==========================================================================
+   v8 — slightly smaller overall scale on larger screens; auto-hiding header
+   ========================================================================== */
+@media (min-width: 64em) {
+  html { font-size: 93.75%; }                  /* 15px base — everything in rem scales down ~6% */
+  body { font-size: 1.0625rem; }
+  :root {
+    --fs-h1: clamp(2.1rem, 1.4rem + 2.2vw, 3.3rem);
+    --fs-h2: clamp(1.6rem, 1.2rem + 1.2vw, 2.25rem);
+    --section: clamp(4rem, 2.5rem + 4.5vw, 7rem);
+    --header-h: 74px;
+    --container: 1180px;
+  }
+  .brand-mark { height: 44px; }
+  .brand-name { font-size: 1.2rem; }
+  .ex-stage { width: min(100%, 460px); }
+  .hive-wrap { --hw: clamp(76px, 20vw, 122px); }
+  .sx-stage { min-height: 400px; }
+  .device { width: min(270px, 82vw); }
+}
+@media (min-width: 100em) { html { font-size: 100%; } }   /* very large monitors keep full size */
+
+/* Header hides on scroll down, returns on scroll up */
+.site-header { transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); will-change: transform; }
+.site-header.is-hidden { transform: translateY(-100%); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }
+@media (min-width: 64em) { .hero h1 { max-width: 19ch; } }
