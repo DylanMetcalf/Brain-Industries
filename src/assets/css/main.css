@@ -1219,3 +1219,110 @@ main > section, .cta-band { overflow-x: clip; }
 .site-header.is-hidden { transform: translateY(-100%); box-shadow: none; }
 @media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }
 @media (min-width: 64em) { .hero h1 { max-width: 19ch; } }
+
+/* ==========================================================================
+   v9 — "one section per screen" sizing on laptop/desktop
+   ========================================================================== */
+@media (min-width: 64em) {
+  html { font-size: 87.5%; }                       /* 14px base */
+  :root {
+    --section: clamp(3rem, 1.5rem + 3vw, 4.75rem);
+    --fs-h1: clamp(2rem, 1.3rem + 2vw, 3rem);
+    --fs-h2: clamp(1.55rem, 1.1rem + 1.1vw, 2.1rem);
+    --header-h: 68px;
+  }
+  .brand-mark { height: 40px; }
+  .section-tight { padding-block: clamp(2.75rem, 1.5rem + 2.5vw, 4rem); }
+  .section-head { margin-bottom: clamp(1.75rem, 1rem + 1.5vw, 2.5rem); }
+  .eyebrow { margin-bottom: 0.9rem; }
+  .lead { font-size: 1.125rem; }
+
+  /* Hero */
+  .hero.theme-light .hero-grid { padding-block: clamp(2.25rem, 1rem + 3vw, 3.75rem); gap: 3rem; }
+  .hero h1 { margin-bottom: 1.25rem; }
+  .hero .lead { margin-bottom: 1.75rem; }
+  .readouts { margin-top: 2.25rem; }
+  .ex-stage { width: min(100%, 400px); }
+
+  /* Cards & grids */
+  .card, .feature-grid li, .env, .portal-list li { padding: 1.35rem 1.5rem; }
+  .feature-grid .card-icon { margin-bottom: 0.9rem; }
+  .card-icon { width: 40px; height: 40px; }
+
+  /* Service honeycomb */
+  .hive-wrap { --hw: 112px; gap: 1rem; }
+  .sx { gap: 2.5rem; }
+  .sx-stage { min-height: 0; }
+  .sx-panel { padding: 1.75rem 2rem; gap: 2rem; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+  .sx-panel h3 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .sx-kicker { margin-bottom: 0.75rem; }
+  .sx-lead { font-size: 1rem; margin-bottom: 0; }
+  .sx-points { margin: 1rem 0 1.4rem; gap: 0.45rem; }
+  .sx-points li { line-height: 1.45; }
+  .sx-media img, .sx-art { aspect-ratio: 1 / 1; }
+
+  /* Ex quick reference */
+  .panel-head { padding: 0.75rem 1.15rem; }
+  .panel-body { padding: 1.1rem; }
+  .zone-tabs { margin-bottom: 1rem; }
+  .zone-tab { padding: 0.7rem 0.9rem; }
+  .tclass { gap: 0.35rem; }
+  .gas-groups { margin-top: 1rem; gap: 0.4rem; }
+  .gas-groups li { padding: 0.45rem 0.7rem; }
+
+  /* Standards table */
+  .std-table th { padding: 0.65rem 1rem; }
+  .std-table td { padding: 0.7rem 1rem; }
+
+  /* Lifecycle */
+  .pipeline li { padding: 1.35rem 1.25rem; }
+  .pipeline li::before { margin-bottom: 1rem; }
+
+  /* InspectX walkthrough */
+  .ix-logo { height: 40px; margin-bottom: 1.1rem; }
+  .ix-demo { gap: 3rem; }
+  .ix-steps { gap: 0.4rem; }
+  .ix-step { padding: 0.7rem 0.9rem; }
+  .ix-step span:last-child { font-size: 0.8125rem; }
+  .device { width: 228px; padding: 8px; border-radius: 36px; }
+  .device-screen { border-radius: 29px; }
+  .device-wrap { padding: 0; }
+  .illustrative { margin-top: 0.5rem; }
+
+  /* About */
+  .stack .viewport-media img { aspect-ratio: 21 / 9; }
+  .spec dt, .spec dd { padding: 0.5rem 0; }
+  .spec dt { padding-top: 0.6rem; }
+
+  /* Projects & CTA */
+  .gallery-preview img { aspect-ratio: 4 / 3; }
+  .cta-band .container { padding-block: clamp(3rem, 2rem + 3vw, 5rem); }
+  .cta-inner { padding: clamp(1.75rem, 1rem + 2vw, 2.75rem); }
+}
+@media (min-width: 100em) { html { font-size: 93.75%; } }
+@media (min-width: 64em) {
+  /* InspectX: accordion-style steps — only the active step shows its description */
+  .ix-step:not([aria-selected="true"]) > span:nth-of-type(2) { display: none; }
+  .ix-step:not([aria-selected="true"]) { grid-template-rows: auto; align-items: center; }
+  .section-ix .ix-logo { height: 32px; margin-bottom: 0.85rem; }
+  .device { aspect-ratio: 9 / 17.5; }
+  /* About */
+  .stack .viewport-media img { aspect-ratio: 3 / 1; }
+  .spec dt, .spec dd { padding: 0.42rem 0; }
+  .stack > * + * { margin-top: 0.75rem; }
+  /* Standards */
+  .std-table td { padding: 0.6rem 1rem; }
+}
+@media (min-width: 64em) { .device { width: 212px; aspect-ratio: 9 / 17; } .section-ix { padding-block: clamp(2.75rem, 1.5rem + 2.5vw, 4rem); } .about-sec, section[aria-labelledby="about-title"], section[aria-labelledby="std-title"] { padding-block: clamp(2.75rem, 1.5rem + 2.5vw, 4.25rem); } }
+@media (min-width: 64em) {
+  /* Compact phone screen contents to match the smaller device */
+  .app-bar { padding: 34px 14px 9px; font-size: 0.6875rem; }
+  .screen { inset: 66px 0 0 0; padding: 11px 12px 14px; gap: 7px; }
+  .s-title { font-size: 0.9375rem; }
+  .s-field { padding: 7px 10px; font-size: 0.6875rem; }
+  .s-btn { padding: 8px; font-size: 0.6875rem; }
+  .qr-frame { width: 116px; } .qr-frame svg { width: 84px; height: 84px; }
+  .photo-box { height: 90px; }
+  .q { padding: 7px 9px; font-size: 0.625rem; } .q .yn { margin-top: 5px; }
+  .outcome-big { padding: 12px 8px; } .outcome-big .icon { width: 30px; height: 30px; }
+}
